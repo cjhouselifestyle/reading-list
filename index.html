@@ -21,7 +21,8 @@ BOOKS.forEach((b,i)=>{b.interests=(interests[b.id]||[]).map(n=>labels[n]);b.reco
 function favourites(){if($('ollie-favourites'))return;const s=document.createElement('section');s.id='ollie-favourites';s.className='panel ollie-panel';s.innerHTML='<div class="ollie-heading"><strong>Ollie\'s Favourites｜歐里的愛書</strong><span class="muted">獨立專區</span></div><div class="ollie-empty"><span class="ollie-mark">O</span><div><strong>等歐里親自確認後再公布</strong><p class="muted">這裡會放上歐里真正喜歡的書，目前先保留位置，不把任何書預設成歐里的愛書。</p></div></div>';$('browse').appendChild(s)}
 function topicsV13(){
 $('series').innerHTML=['全部書籍','五味太郎精選'].map(x=>'<button class="chip '+(series===x?'active':'')+'" data-series="'+x+'">'+x+'</button>').join('');
-document.querySelectorAll('[data-series]').forEach(e=>e.onclick=()=>{series=e.dataset.series;if(series==='全部書籍'){topic='全部';selected.clear();}topicsV13();shelfV13()});
+function setSeriesV13(next){series=next;if(next==='全部書籍'){topic='全部';selected.clear()}topicsV13();shelfV13()}
+document.querySelectorAll('[data-series]').forEach(e=>e.onclick=()=>setSeriesV13(e.dataset.series));
 $('topics').innerHTML=TOPICS.map(t=>'<button class="chip '+(topic===t?'active':'')+'" data-topic="'+esc(t)+'">'+esc(t)+'</button>').join('');
 document.querySelectorAll('[data-topic]').forEach(e=>e.onclick=()=>{topic=e.dataset.topic;topicsV13();shelfV13()});
 let third=$('interests');if(!third){const h=document.createElement('div');h.className='filter-subheading';h.innerHTML='<strong>③ 孩子最近喜歡什麼？</strong>';third=document.createElement('div');third.id='interests';third.className='topics';$('topics').parentNode.append(h,third);const p=document.createElement('p');p.className='muted';p.textContent='可複選；選到任一興趣即可，並會和前兩組條件交集篩選。';$('topics').parentNode.appendChild(p)}
@@ -57,6 +58,7 @@ window.__readingBooks=BOOKS;window.__readingAges=ages;window.__readingChosen=cho
   let openV13=window.__readingOpen;
   const coverMap={
     '小金魚逃走了':'https://cdn.groupbuyforms.com/upload/images/unsort/6ba977f4c18d4c9f90b2709888fd32eb.jpg',
+    '好想見到妳':'assets/cover-good-to-see-you.png',
     '誰吃掉了？':'https://cdn.groupbuyforms.com/upload/images/vcf/c2/288/c2323a7ec02b439f87068b85735d7043.png',
     '藏在誰那兒呢？':'https://cdn.groupbuyforms.com/upload/images/vcf/c2/288/c2323a7ec02b439f87068b85735d7043.png',
     '小雞逃跑記':'https://cdn.groupbuyforms.com/upload/images/v4/21/288/213bb487e1d24bc19d815ab46e753ee9.png',
