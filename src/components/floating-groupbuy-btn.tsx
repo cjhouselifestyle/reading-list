@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { GROUPBUY_URL } from "@/data/picture-books";
 import { ShoppingBag, ExternalLink } from "lucide-react";
 
@@ -9,25 +8,6 @@ interface FloatingGroupbuyBtnProps {
 }
 
 export function FloatingGroupbuyBtn({ hasSelectedBooks }: FloatingGroupbuyBtnProps) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // 往下滾動超過 160px 時顯示懸浮按鈕
-      if (window.scrollY > 160) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  if (!isVisible) return null;
-
   return (
     <aside
       aria-label="快速前往團購頁面"
