@@ -1,60 +1,94 @@
-# 經典繪本｜分齡讀出不同樂趣
+# 經典繪本｜分齡讀出不同樂趣（CJ House Lifestyle）
 
-這是一個提供家長挑選經典繪本的互動網站，透過年齡、故事主題與孩子最近喜歡的興趣，協助家長找到適合親子共讀的書籍。
+這是一個提供家長挑選經典繪本的互動式親子共讀指南網站。家長可透過年齡（1–3 歲）、故事主題與孩子最近的興趣，快速篩選出最適合親子共讀的書籍，查看重複語句延伸建議，並一鍵建立個人專屬選書清單。
 
-## 線上網站
+- **線上網址**：[https://cjhouse.vercel.app](https://cjhouse.vercel.app)
+- **Instagram**：`@cjhouse.lifestyle`
 
-GitHub Pages：<https://cjhouselifestyle.github.io/reading-list/>
+---
 
-## 目前功能
+## 專案特色與架構
 
-- 保留經典繪本書籍資料與分齡共讀建議
-- 依五味太郎精選、故事主題與孩子興趣篩選書籍
-- 查看書本亮點、強力推薦對象與最推薦開始閱讀的年紀
-- 建立自己的共讀選書清單
-- 提供重複語句與 1–3 歲共讀方式
-- 支援手機、平板與桌面瀏覽
-- 提供「Ollie's Favourites｜歐里的愛書」獨立專區
+本專案採用現代化前端架構 **Next.js (App Router) + React + TypeScript + Tailwind CSS**，並依主題進行模組化規劃：
 
-## 專案結構
+- 📖 **經典繪本書單 (`/`)**：收錄經典繪本、五味太郎精選與團購熱門書單，提供分齡共讀重點與重複句型。
+- 🧸 **玩具選物專區 (`/toys`)**：為未來規劃中的 0–6 歲分齡玩具、益智教具與開放式遊玩選物。
+- 📚 **其他出版社專區 (`/publishers`)**：為未來擴充其他出版社精選書單保留的獨立空間。
+
+### 專案結構
 
 ```text
-.
-├── index.html                         # GitHub Pages 使用的網站入口
-├── assets/                            # GitHub Pages 使用的圖片素材
-├── outputs/
-│   ├── index.html                     # 本地較完整的工作版本
-│   └── assets/                        # 本地工作版本的圖片素材
-├── dist/
-│   └── index.html                     # Sites hosting 使用的靜態輸出目錄
-└── .openai/hosting.json               # Sites hosting 設定
+reading-list/
+├── src/
+│   ├── app/                         # App Router 頁面路由
+│   │   ├── layout.tsx               # 全站共同外框 (Navbar, Footer, Meta)
+│   │   ├── page.tsx                 # 首頁：經典繪本書單
+│   │   ├── toys/page.tsx            # 玩具選物專區（即將推出）
+│   │   ├── publishers/page.tsx      # 其他出版社選書（即將推出）
+│   │   └── globals.css              # 全域樣式與色系定義
+│   │
+│   ├── components/                  # 核心介面元件
+│   │   ├── navbar.tsx               # 頂部導覽列（切換繪本、玩具、出版社）
+│   │   ├── book-card.tsx            # 書本書卡（封面、書名、合購標記）
+│   │   ├── book-modal.tsx           # 書本詳細彈窗（分齡共讀 1-3 歲、重複語句）
+│   │   ├── book-filters.tsx         # 篩選工具列（系列、故事主題、孩子興趣、團購入口）
+│   │   ├── ollie-section.tsx        # 歐里的愛書專區
+│   │   └── my-list-drawer.tsx       # 底部常駐列、我的書單檢視、匯出 PDF 與複製
+│   │
+│   ├── data/                        # 業務資料層（未來擴充只需編輯此處）
+│   │   ├── picture-books.ts         # 繪本書籍資料庫、團購套組、分齡建議
+│   │   ├── toys.ts                  # 玩具資料結構（未來填入商品即可）
+│   │   └── other-publishers.ts      # 其他出版社書籍資料（未來填入即可）
+│   │
+│   ├── types/                       # TypeScript 型別定義
+│   │   └── index.ts                 # Book, FilterState, BundleRule 等型別
+│   │
+│   └── lib/                         # 工具函式庫 (cn 等)
+│       └── utils.ts
+│
+├── public/                          # 靜態圖檔與 Icons
+└── package.json
 ```
 
-## 本地檔案說明
+---
 
-GitHub Pages 直接使用 repository 根目錄的 `index.html` 與圖片素材。`outputs/` 是本地工作版本，`dist/` 則是 Sites hosting 的部署輸出目錄；兩者不會自動同步到 GitHub Pages。
+## 本地開發
 
-更新網站時，請確認修改後的 HTML 與圖片已同步到 GitHub Pages 使用的根目錄，並保留圖片相對路徑一致。
-
-## 本地預覽
-
-可以直接用瀏覽器開啟 `outputs/index.html`，或啟動本地端伺服器後測試：
-
+### 1. 安裝套件
 ```bash
-cd /Users/cassie/Documents/Codex/2026-11-10/referenced-chatgpt-conversation-this-is-an
-python3 -m http.server 8000
+npm install
 ```
 
-開啟 <http://localhost:8000/outputs/index.html> 即可預覽本地工作版本。
+### 2. 啟動本機開發伺服器
+```bash
+npm run dev
+```
 
-## 更新網站
+開啟瀏覽器前往 [http://localhost:3000](http://localhost:3000) 即可即時預覽與熱更新開發。
 
-更新內容後，請確認以下項目：
+### 3. 編譯打包測試
+```bash
+npm run build
+```
 
-1. 書籍篩選、彈出視窗與選書清單功能正常。
-2. 手機版排版沒有水平溢出。
-3. 圖片檔案已放到正確的 `assets/` 位置。
-4. GitHub Pages 根目錄的 `index.html` 與素材已更新。
-5. 推送後使用硬重新整理查看最新版本。
+---
 
-網站目前由 `cjhouselifestyle/reading-list` repository 的 GitHub Pages 發布。
+## 部署說明（推薦使用 Vercel）
+
+本專案已完全相容 Vercel 自動化部署：
+1. 將程式碼推送到 GitHub：
+   ```bash
+   git add .
+   git commit -m "feat: 重構為 Next.js + React 模組化架構"
+   git push origin main
+   ```
+2. 在 Vercel 匯入該 GitHub Repository，Vercel 將自動辨識 Next.js 並進行編譯上線。
+3. 可至 Vercel 專案設定將 Domain 設為 `cjhouse.vercel.app`。
+
+---
+
+## 未來擴充指引
+
+- **新增/修改繪本**：直接編輯 `src/data/picture-books.ts` 中的 `PICTURE_BOOKS` 陣列。
+- **上架玩具選物**：直接在 `src/data/toys.ts` 填入玩具商品資料，並在 `src/app/toys/page.tsx` 渲染。
+- **上架其他出版社**：直接在 `src/data/other-publishers.ts` 填入新出版社選書資料。

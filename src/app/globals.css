@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f7f5f1;
+  --ink: #37332f;
+  --sub: #77716b;
+  --line: #e5e1db;
+  --soft: #f2f2f0;
+  --accent: #655f57;
+  --card: #ffffff;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  line-height: 1.6;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
