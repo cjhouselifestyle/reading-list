@@ -8,6 +8,7 @@ import { BookModal } from "@/components/book-modal";
 import { BookFilters } from "@/components/book-filters";
 import { OllieSection } from "@/components/ollie-section";
 import { MyListDrawer } from "@/components/my-list-drawer";
+import { FloatingGroupbuyBtn } from "@/components/floating-groupbuy-btn";
 
 export default function ReadingListPage() {
   // 篩選條件狀態
@@ -228,6 +229,9 @@ export default function ReadingListPage() {
         onAddBooks={handleAddMultiple}
         allBooks={PICTURE_BOOKS}
       />
+
+      {/* 往下滾動時出現的右下角懸浮按鈕 */}
+      <FloatingGroupbuyBtn hasSelectedBooks={selectedBookIds.length > 0} />
     </div>
   );
 }
