@@ -47,6 +47,12 @@ export function BookModal({
   const displayCats = isVisualBundle ? "動物故事 · 找找看｜兩本合購組" : book.cats.join(" · ");
   const currentTip = book.tips[selectedAge - 1] || book.tips[0] || "暫無建議";
 
+  // 使用瀏覽器原生文字定位語法 (#:~:text=)，平滑滾動至視野中央，完整展示封面且不被頂部選單遮擋
+  const searchKeyword = isVisualBundle
+    ? "誰吃掉了"
+    : book.name.replace(/[（(].*?[）)]|[-－].*$/g, "").replace(/[？?！!]/g, "").trim() || book.name;
+  const groupBuyAnchorUrl = `${GROUPBUY_URL}#:~:text=${encodeURIComponent(searchKeyword)}`;
+
   return (
     <div
       role="dialog"
@@ -108,16 +114,28 @@ export function BookModal({
                 </p>
               )}
 
-              <div className="pt-1">
+              <div className="pt-2 flex flex-wrap items-center gap-2.5">
                 <a
-                  href={isVisualBundle ? GROUPBUY_URL : (book.official || GROUPBUY_URL)}
+                  href={groupBuyAnchorUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#655f57] hover:underline underline-offset-4"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-xl bg-[#655f57] text-white hover:bg-[#524d46] transition-colors shadow-xs"
                 >
-                  <span>{isVisualBundle ? "前往團購套組頁面" : "查看商品詳情"}</span>
+                  <span>前往團購頁面（定位本書）</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
+
+                {book.official && (
+                  <a
+                    href={book.official}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs text-[#77716b] hover:text-[#37332f] hover:underline px-2 py-1"
+                  >
+                    <span>官方詳細簡介</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
               </div>
             </div>
           </div>
