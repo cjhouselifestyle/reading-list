@@ -263,7 +263,7 @@ export const PICTURE_BOOKS: Book[] = [
   },
   {
     "id": 8,
-    "name": "兔子先生去散步",
+    "name": "兔子先生散步",
     "cats": [
       "動物故事",
       "生活日常"
