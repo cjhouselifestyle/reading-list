@@ -46,6 +46,13 @@ export function BookCard({ book, isSelected, onClick, isBundlePair }: BookCardPr
           </div>
         )}
 
+        {/* 得獎標籤 */}
+        {book.award && (
+          <div className="absolute top-2 left-2 bg-[#655f57]/90 backdrop-blur-xs text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow-xs">
+            🏆 得獎
+          </div>
+        )}
+
         {/* 已加入標記 */}
         {isSelected && (
           <div className="absolute top-2 right-2 bg-[#3d7464] text-white p-1 rounded-full shadow">

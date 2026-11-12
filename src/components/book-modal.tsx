@@ -64,6 +64,11 @@ export function BookModal({
               {displayTitle}
             </h2>
             <div className="text-xs text-[#77716b] mt-1 font-medium">{displayCats}</div>
+            {book.award && (
+              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#3d7464] bg-[#eef5f2] border border-[#d2e5dd] px-2 py-0.5 rounded-md mt-1.5">
+                🏆 榮獲文化部中小學生優良課外讀物推介
+              </span>
+            )}
           </div>
           <button
             type="button"

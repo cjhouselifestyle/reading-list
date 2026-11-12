@@ -156,7 +156,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "調皮的小金魚從魚缸裡逃走，躲進窗簾、花盆、糖果罐等熟悉的生活場景裡。孩子要在相近的色彩和形狀中，仔細找出小金魚藏在哪裡。隨著場景越來越複雜，尋找也變得更有挑戰，孩子會在遊戲中練習觀察與視覺辨識。每次找到小金魚時，都能享受「找到了！」的成就感。故事最後，小金魚因為找到同伴而不再逃走，也讓這本書不只是找找看的遊戲，還多了一點關於陪伴與歸屬感的想像。",
     "startAge": "1–2 歲",
     "startReason": "畫面線索清楚，1–2 歲就能和大人一起找、一起指認。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/unsort/6ba977f4c18d4c9f90b2709888fd32eb.jpg"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/unsort/6ba977f4c18d4c9f90b2709888fd32eb.jpg",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 2,
@@ -190,7 +191,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "動物們排排站，畫面裡藏著「誰吃掉了？」的線索。孩子可以先從動物的表情、嘴巴和身體細節開始猜一猜。隨著故事往下看，原本看起來一樣的動物會慢慢出現不同之處。這種先猜、再回頭找證據的閱讀方式，很適合培養觀察力。最後找到答案時，也會有一種自己破案的成就感。",
     "startAge": "2–3 歲",
     "startReason": "動物的外觀線索需要一點觀察與猜測，2–3 歲會更有參與感。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/c2/288/c2323a7ec02b439f87068b85735d7043.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/c2/288/c2323a7ec02b439f87068b85735d7043.png",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 3,
@@ -224,7 +226,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "有東西悄悄藏在動物身上，孩子要仔細看圖，找出藏起來的圖案。每一頁都有不同的動物和線索，讓尋找不會只是重複同一件事。大人可以先不急著說答案，留一點時間讓孩子自己發現。當孩子找到時，還能一起說說圖案和動物哪裡相像。這本書把觀察、猜測和驚喜放進一個簡單又耐讀的遊戲裡。",
     "startAge": "2–3 歲",
     "startReason": "孩子開始能追蹤畫面細節，2–3 歲讀起來更能享受找找看的樂趣。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/c2/288/c2323a7ec02b439f87068b85735d7043.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/c2/288/c2323a7ec02b439f87068b85735d7043.png",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 4,
@@ -464,7 +467,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "鱷魚害怕看牙醫，牙醫也害怕鱷魚，兩個角色都帶著自己的緊張走進診間。故事用幽默的方式讓孩子看見，原來大人也會害怕和不安。鱷魚張嘴、牙醫檢查的情節，也能讓孩子先用遊戲熟悉看牙的流程。大人可以陪孩子做出怕怕的表情，再一起想想怎麼讓彼此安心。這本書不只是在講看牙，更是在陪孩子理解害怕並慢慢面對它。",
     "startAge": "2–3 歲",
     "startReason": "2–3 歲比較能說出害怕，也能在故事裡練習面對看牙的心情。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/unsort/afe9de64689d4b34b358f2b85affec74.jpg"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/unsort/afe9de64689d4b34b358f2b85affec74.jpg",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 11,
@@ -498,7 +502,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "窗戶只露出一小部分，讓孩子在翻頁前先猜猜裡面到底藏著什麼。每次打開之後，露出的完整畫面都可能和原本的猜想不一樣。這種從一小角到完整圖像的變化，會自然引起孩子的好奇心。大人可以故意停一下，讓孩子先說自己的答案，再一起揭曉。這本書把猜謎、想像和翻頁驚喜放在同一段閱讀旅程裡。",
     "startAge": "2–3 歲",
     "startReason": "2–3 歲開始享受翻頁前猜一猜、翻開後揭曉的閱讀節奏。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/4a/288/4a2be073c02e4f74bfe6e8b80d98836c.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/4a/288/4a2be073c02e4f74bfe6e8b80d98836c.png",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 12,
@@ -566,7 +571,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "春天來了，花草、顏色和天氣一點一點出現在生活裡。孩子可以從畫面裡找找看哪些地方變綠了、哪些花開了。這些細小的季節變化，讓抽象的「春天」變成看得見、說得出的景色。讀完之後，也能帶孩子到窗邊或公園找找書裡看過的東西。這是一本適合慢慢看、慢慢感受季節來到身邊的書。",
     "startAge": "2–3 歲",
     "startReason": "2–3 歲開始會把書裡的花草和窗外景色連在一起。",
-    "cover": "https://shoplineimg.com/5d5a3575f7124400016c8c3c/65c2ea8d051e4f5ba776e9d7/540x.webp?source_format=jpg"
+    "cover": "https://shoplineimg.com/5d5a3575f7124400016c8c3c/65c2ea8d051e4f5ba776e9d7/540x.webp?source_format=jpg",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 14,
@@ -840,7 +846,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "毛毛蟲一路吃吃吃，從一個個洞洞和食物開始展開自己的小旅程。孩子可以用手指摸摸洞洞，跟著重複的節奏假裝餵牠吃東西。隨著食物越吃越多，故事的數量和變化也會讓孩子一直期待下一頁。最後毛毛蟲變成蝴蝶，帶來一個清楚又令人開心的成長驚喜。這本書把操作、語言、食物和生命變化放在一起，很適合小小孩反覆閱讀。",
     "startAge": "1–2 歲",
     "startReason": "洞洞、食物和重複句型很適合 1–2 歲用手和聲音參與。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/v3/e0/288/e0da2c31dfdf4d21a1b3df28329eac18.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/v3/e0/288/e0da2c31dfdf4d21a1b3df28329eac18.png",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 22,
@@ -874,7 +881,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "動物園送來一個又一個神祕包裹，孩子要猜猜看裡面會出現誰。每次翻開機關，動物的大小、形狀和特徵都會帶來新的發現。孩子可以自己動手打開，也能和大人一起模仿動物的聲音。當動物太大、太高或不適合時，故事還會出現有趣的轉折。這本書把翻頁驚喜和認識動物的樂趣結合在一起。",
     "startAge": "1–2 歲",
     "startReason": "翻頁機關與動物揭曉很適合 1–2 歲一起猜、一起掀開。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/57/576/57c685c7bc7340999f91488c2965f5ba.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/57/576/57c685c7bc7340999f91488c2965f5ba.png",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 23,
@@ -908,7 +916,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "小猩猩看見其他動物互相抱抱，也開始尋找屬於自己的擁抱。牠一路看著不同動物和家人親近，心裡的期待也慢慢累積。孩子可以一邊讀，一邊感受抱抱代表的安心、想念和喜歡。讀完後還能聊聊自己什麼時候最想抱抱，或直接給家人一個擁抱。這本書的故事很簡單，卻把親密關係裡溫暖的感覺說得很清楚。",
     "startAge": "1–2 歲",
     "startReason": "1–2 歲就能透過抱抱和動物感受親密與安心。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vg/07/576/07d2b4ac2ef54bd7bc2f660567abd652.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vg/07/576/07d2b4ac2ef54bd7bc2f660567abd652.png",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 24,
@@ -943,7 +952,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "一隻隻色彩鮮明的動物接連出現，故事用重複問答把牠們串在一起。孩子可以跟著「你看見什麼？」的節奏，慢慢預測下一頁會遇到誰。顏色和動物名稱都很清楚，適合小小孩一邊指、一邊跟著說。當孩子熟悉句型後，也能換他來提問，讓大人回答。這本書把顏色、語言和等待下一個驚喜變成一場輕鬆的閱讀遊戲。",
     "startAge": "1–2 歲",
     "startReason": "顏色、動物和重複問答清楚，1–2 歲就能跟著看和說。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/96/288/96f3e60163c64d809de9e2b74a22d0ad.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/96/288/96f3e60163c64d809de9e2b74a22d0ad.png",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 25,
@@ -1046,7 +1056,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "小狗小波不知道躲到哪裡去了，孩子要跟著門後、房間和不同角落一路找下去。每個翻頁機關都像一次躲貓貓，打開前可以先讓孩子猜猜看。找錯了也沒關係，故事會鼓勵孩子繼續觀察、再試一次。當小波終於出現時，孩子會有找到熟悉朋友的開心感。這本書把翻翻看的操作樂趣和尋找故事結合得很自然。",
     "startAge": "1–2 歲",
     "startReason": "躲藏和翻頁的驚喜很適合 1–2 歲反覆尋找小波。",
-    "cover": "https://shoplineimg.com/5d5a3575f7124400016c8c3c/66bb00428cbdb4001cdf6234/800x.webp?source_format=jpg"
+    "cover": "https://shoplineimg.com/5d5a3575f7124400016c8c3c/66bb00428cbdb4001cdf6234/800x.webp?source_format=jpg",
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 28,
@@ -2235,7 +2246,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E6%9C%88%E4%BA%AE%E6%99%9A%E5%AE%89",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 143,
@@ -2433,7 +2445,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%8F%A4%E5%88%A9%E5%92%8C%E5%8F%A4%E6%8B%89",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 149,
@@ -2466,7 +2479,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%B0%8F%E8%B2%93%E9%A0%AD%E9%B7%B9",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 150,
@@ -2499,7 +2513,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%B0%8F%E8%97%8D%E5%92%8C%E5%B0%8F%E9%BB%83",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 151,
@@ -2664,7 +2679,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E9%80%83%E5%AE%B6%E5%B0%8F%E5%85%94",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 156,
@@ -2697,7 +2713,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E7%8C%9C%E7%8C%9C%E6%88%91%E6%9C%89%E5%A4%9A%E6%84%9B%E4%BD%A0",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 157,
@@ -2730,7 +2747,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E9%AD%94%E6%B3%95%E8%A6%AA%E8%A6%AA",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 158,
@@ -2862,7 +2880,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E6%84%9B%E5%90%83%E9%9D%92%E8%8F%9C%E7%9A%84%E9%B1%B7%E9%AD%9A",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 162,
@@ -2895,7 +2914,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E6%84%9B%E5%90%83%E6%B0%B4%E6%9E%9C%E7%9A%84%E7%89%9B",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 163,
@@ -2928,7 +2948,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%A5%BD%E6%83%B3%E5%90%83%E6%A6%B4%E6%A7%A4",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 164,
@@ -3390,7 +3411,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%AA%BD%E5%AA%BD%EF%BC%8C%E8%B2%B7%E7%B6%A0%E8%B1%86",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 178,
@@ -3489,7 +3511,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E8%AC%8A%E8%A9%B1%E8%9F%B2",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 181,
@@ -3522,7 +3545,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完把故事裡的情境帶進遊戲或生活中，讓孩子再演一次。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E6%81%90%E9%BE%8D%E5%85%88%E7%94%9F%E6%B5%81%E9%BC%BB%E6%B6%95%E4%BB%A5%E5%BE%8C",
-    "pending": true
+    "pending": true,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 182,
@@ -3621,7 +3645,8 @@ export const PICTURE_BOOKS: Book[] = [
       "熟悉後交換角色，請孩子出指令，大人來完成。"
     ],
     "series": "團購推薦",
-    "pending": false
+    "pending": false,
+    "award": "中小學生優良課外讀物"
   },
   {
     "id": 185,
