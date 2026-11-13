@@ -135,7 +135,7 @@ export default function ReadingListPage() {
           <span className="block sm:inline sm:ml-3">分齡讀出不同樂趣</span>
         </h1>
         <p className="text-xs sm:text-sm text-[#77716b]">
-          從觀察指認、重複語句，到想像與表達
+          從觀察指認、分齡共讀，到想像與表達
         </p>
         <div className="text-xs text-[#aaa6a0] mt-2 font-medium tracking-wide">
           ＠cjhouse.lifestyle

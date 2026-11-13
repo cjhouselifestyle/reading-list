@@ -4,7 +4,7 @@ import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "經典繪本｜分齡讀出不同樂趣 - CJ House Lifestyle",
-  description: "從觀察指認、重複語句，到想像與表達。挑選適合親子共讀的經典繪本書單。",
+  description: "從觀察指認、分齡共讀，到想像與表達。挑選適合親子共讀的經典繪本書單。",
 };
 
 export default function RootLayout({
