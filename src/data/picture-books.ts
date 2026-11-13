@@ -120,6 +120,8 @@ export const BUNDLE_RULES: BundleSuggestionRule[] = [
   }
 ];
 
+export const OLLIE_FAVORITE_IDS = [1,2,3,6,8,10,11,17,124,125,21,24,25,126,127,128,129,130,131,191,22,132,143,153];
+
 export const PICTURE_BOOKS: Book[] = [
   {
     "id": 1,
@@ -146,7 +148,8 @@ export const PICTURE_BOOKS: Book[] = [
     "startAge": "1–2 歲",
     "startReason": "畫面線索清楚，1–2 歲就能和大人一起找、一起指認。",
     "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/42/576/422c1d8390ec41a6a0488e8c961596e4.png",
-    "award": "中小學生優良課外讀物"
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   },
   {
     "id": 2,
@@ -173,7 +176,8 @@ export const PICTURE_BOOKS: Book[] = [
     "startAge": "2–3 歲",
     "startReason": "動物的外觀線索需要一點觀察與猜測，2–3 歲會更有參與感。",
     "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/c2/288/c2323a7ec02b439f87068b85735d7043.png",
-    "award": "中小學生優良課外讀物"
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   },
   {
     "id": 3,
@@ -200,7 +204,8 @@ export const PICTURE_BOOKS: Book[] = [
     "startAge": "2–3 歲",
     "startReason": "孩子開始能追蹤畫面細節，2–3 歲讀起來更能享受找找看的樂趣。",
     "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/c2/288/c2323a7ec02b439f87068b85735d7043.png",
-    "award": "中小學生優良課外讀物"
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   },
   {
     "id": 6,
@@ -227,7 +232,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "小雞從家裡跑出去，一路跑跑停停，遇到躲藏、尋找和回家的小插曲。孩子可以跟著小雞的方向看，猜猜牠下一站會跑去哪裡。故事裡有明確的動作和重複節奏，很容易加入跑跑跑、停一下等聲音。讀到小雞躲起來時，也能先讓孩子自己找，再一起歡呼找到牠。這本書把一場小冒險讀得輕快又有活力，很適合邊讀邊玩。",
     "startAge": "1–2 歲",
     "startReason": "角色移動明確、節奏活潑，1–2 歲就能跟著看和做動作。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/25/576/2562c7d923c74eb58b4991d62a6dde88.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/25/576/2562c7d923c74eb58b4991d62a6dde88.png",
+    "isOllieFavorite": true
   },
   {
     "id": 8,
@@ -253,7 +259,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "兔子先生出門散步，沿路遇見標誌、方向和各種需要注意的小細節。故事沒有急著抵達某個地方，而是把重點放在一路上看見了什麼。孩子可以跟著兔子一起走走停停，猜猜下一步要往哪裡去。畫面裡的路線和圖像提示，也能引導孩子慢慢理解方向。這本書適合喜歡觀察情緒周遭環境、邊走邊發現新事物的孩子。",
     "startAge": "2–3 歲",
     "startReason": "2–3 歲開始會注意路線與圖像提示，散步故事會更有共讀對話。",
-    "cover": "https://shoplineimg.com/5d5a3575f7124400016c8c3c/6238237386ac880011c48575/800x.webp?source_format=jpg"
+    "cover": "https://shoplineimg.com/5d5a3575f7124400016c8c3c/6238237386ac880011c48575/800x.webp?source_format=jpg",
+    "isOllieFavorite": true
   },
   {
     "id": 10,
@@ -281,7 +288,8 @@ export const PICTURE_BOOKS: Book[] = [
     "startAge": "2–3 歲",
     "startReason": "2–3 歲比較能說出害怕，也能在故事裡練習面對看牙的心情。",
     "cover": "https://cdn.groupbuyforms.com/upload/images/unsort/afe9de64689d4b34b358f2b85affec74.jpg",
-    "award": "中小學生優良課外讀物"
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   },
   {
     "id": 11,
@@ -308,7 +316,8 @@ export const PICTURE_BOOKS: Book[] = [
     "startAge": "2–3 歲",
     "startReason": "2–3 歲開始享受翻頁前猜一猜、翻開後揭曉的閱讀節奏。",
     "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/4a/288/4a2be073c02e4f74bfe6e8b80d98836c.png",
-    "award": "中小學生優良課外讀物"
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   },
   {
     "id": 17,
@@ -335,7 +344,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "飛一下、休息一下、再想一下，故事把行動和停下來都放在同樣重要的位置。孩子會看到角色不一定要一直往前衝，也可以先喘口氣、換個方法再試試看。這樣的節奏很貼近日常生活中學習新事情的過程。大人可以和孩子聊聊最近有沒有一件事需要先休息一下。這本書用輕盈的想像陪孩子理解，重新出發之前，停一停也是很重要的事。",
     "startAge": "2–3 歲",
     "startReason": "2–3 歲比較能理解飛一下、休息一下，再重新嘗試的節奏。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vg/4f/288/4f3fe6ea2099418c9ab25d8b4a5f7006.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vg/4f/288/4f3fe6ea2099418c9ab25d8b4a5f7006.png",
+    "isOllieFavorite": true
   },
   {
     "id": 21,
@@ -363,7 +373,8 @@ export const PICTURE_BOOKS: Book[] = [
     "startAge": "1–2 歲",
     "startReason": "洞洞、食物和重複句型很適合 1–2 歲用手和聲音參與。",
     "cover": "https://cdn.groupbuyforms.com/upload/images/v3/e0/288/e0da2c31dfdf4d21a1b3df28329eac18.png",
-    "award": "中小學生優良課外讀物"
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   },
   {
     "id": 22,
@@ -390,7 +401,8 @@ export const PICTURE_BOOKS: Book[] = [
     "startAge": "1–2 歲",
     "startReason": "翻頁機關與動物揭曉很適合 1–2 歲一起猜、一起掀開。",
     "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/57/576/57c685c7bc7340999f91488c2965f5ba.png",
-    "award": "中小學生優良課外讀物"
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   },
   {
     "id": 23,
@@ -445,7 +457,8 @@ export const PICTURE_BOOKS: Book[] = [
     "startAge": "1–2 歲",
     "startReason": "顏色、動物和重複問答清楚，1–2 歲就能跟著看和說。",
     "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/96/288/96f3e60163c64d809de9e2b74a22d0ad.png",
-    "award": "中小學生優良課外讀物"
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   },
   {
     "id": 25,
@@ -471,7 +484,8 @@ export const PICTURE_BOOKS: Book[] = [
     "highlight": "各種動物輪流示範從頭到腳的動作，邀請孩子一起抬頭、彎腰和踢踢腳。故事不需要坐著安靜聽完，而是可以直接用身體加入其中。孩子可以先模仿最喜歡的動物，再自己發明一個新動作。大人跟著做，會讓孩子感覺自己也成了故事裡的老師。這本書讓閱讀和身體遊戲自然連在一起，很適合坐不住但喜歡參與的孩子。",
     "startAge": "1–2 歲",
     "startReason": "動作直接又好模仿，1–2 歲就能把閱讀變成一起動一動。",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/6f/288/6f07276fce7b418980c27815a9d0ab5f.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/6f/288/6f07276fce7b418980c27815a9d0ab5f.png",
+    "isOllieFavorite": true
   },
   {
     "id": 26,
@@ -983,7 +997,8 @@ export const PICTURE_BOOKS: Book[] = [
       "拿軟球或小布偶和孩子在家裡開一場小小馬戲團表演，發揮身體協調力。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%B0%8F%E9%87%91%E9%AD%9A%E9%A6%AC%E6%88%B2%E5%9C%98",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 125,
@@ -1010,7 +1025,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讓孩子找出多出來的那一片，問問看：「這一片可以去哪裡冒險呢？」發揮想像力。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%A4%9A%E4%BA%86%E5%93%AA%E4%B8%80%E7%89%87%E6%8B%BC%E5%9C%96%E6%9B%B8",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 126,
@@ -1037,7 +1053,8 @@ export const PICTURE_BOOKS: Book[] = [
       "聊聊蜘蛛專心織網、最後抓住蒼蠅飽餐一頓的因果，體會專注完成一件事的成就感。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%A5%BD%E5%BF%99%E7%9A%84%E8%9C%98%E8%9B%9B",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 127,
@@ -1064,7 +1081,8 @@ export const PICTURE_BOOKS: Book[] = [
       "和孩子聊聊世界上所有小生命都有深愛他們的爸爸媽媽，培養同理心與愛心。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E8%A2%8B%E9%BC%A0%E4%B9%9F%E6%9C%89%E5%AA%BD%E5%AA%BD%E5%97%8E%EF%BC%9F",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 128,
@@ -1091,7 +1109,8 @@ export const PICTURE_BOOKS: Book[] = [
       "比對家貓與野生貓科動物的體型與花紋差異，最後看到真正的小貓生了一窩小貓，聊聊新生命。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E4%BD%A0%E7%9C%8B%E5%88%B0%E6%88%91%E7%9A%84%E8%B2%93%E5%97%8E%EF%BC%9F",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 129,
@@ -1118,7 +1137,8 @@ export const PICTURE_BOOKS: Book[] = [
       "討論第10隻小鴨遇到真鴨子媽媽並融入鴨群的溫馨結局，給孩子安心的歸屬感。"
     ],
     "official": "https://www.hsinyishop.com/products?query=10%E9%9A%BB%E6%A9%A1%E7%9A%AE%E5%B0%8F%E9%B4%A8",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 130,
@@ -1145,7 +1165,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完後在家裡客廳用紙條藏一份小禮物，讓孩子照著簡單線索尋寶。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E7%A5%9E%E7%A7%98%E7%9A%84%E7%94%9F%E6%97%A5%E7%A6%AE%E7%89%A9",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 131,
@@ -1172,7 +1193,8 @@ export const PICTURE_BOOKS: Book[] = [
       "到了最後滿載動物的熱鬧動物園，讓孩子挑一隻最喜歡的動物，聊聊動物的生活習性。"
     ],
     "official": "https://www.hsinyishop.com/products?query=1%EF%BC%8C2%EF%BC%8C3%E5%88%B0%E5%8B%95%E7%89%A9%E5%9C%92",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 132,
@@ -1199,7 +1221,8 @@ export const PICTURE_BOOKS: Book[] = [
       "和孩子發現小老鼠最後回到原本的家，聊聊「自己的家最溫暖」的滿足心態。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%B0%8F%E8%80%81%E9%BC%A0%E6%89%BE%E6%96%B0%E5%AE%B6",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 133,
@@ -1497,7 +1520,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀完後和家人來一個溫暖的大擁抱，感受愛與依靠。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%A5%BD%E9%AB%98%E3%80%81%E5%A5%BD%E9%AB%98%EF%BC%81",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 144,
@@ -1770,7 +1794,8 @@ export const PICTURE_BOOKS: Book[] = [
       "讀到管理員太太在黑暗中聽到「晚安、晚安、晚安」驚醒的畫面，引發爆笑討論。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E6%99%9A%E5%AE%89%EF%BC%8C%E7%8C%A9%E7%8C%A9",
-    "pending": true
+    "pending": true,
+    "isOllieFavorite": true
   },
   {
     "id": 154,
@@ -2809,7 +2834,8 @@ export const PICTURE_BOOKS: Book[] = [
     "id": 191,
     "pending": false,
     "official": "https://www.hsinyishop.com/products?query=%E5%A5%BD%E5%AF%82%E5%AF%9E%E7%9A%84%E8%9E%A2%E7%81%AB%E8%9F%B2",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vf/80/288/80b375bb34e04be0bceace467f6890d8.png"
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vf/80/288/80b375bb34e04be0bceace467f6890d8.png",
+    "isOllieFavorite": true
   },
   {
     "name": "《豆豆的家》聖誕限定版",

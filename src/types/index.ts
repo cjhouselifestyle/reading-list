@@ -14,6 +14,7 @@ export interface Book {
   tips: string[]; // [1歲建議, 2歲建議, 3歲建議]
   official?: string;
   award?: string;
+  isOllieFavorite?: boolean;
   pending?: boolean;
 }
 
@@ -30,4 +31,5 @@ export interface FilterState {
   selectedInterests: string[];
   bundleGroup: string | null;
   awardOnly: boolean;
+  ollieFavoriteOnly?: boolean;
 }

@@ -22,7 +22,8 @@ export function BookFilters({
     filters.topic !== "全部" ||
     filters.selectedInterests.length > 0 ||
     filters.bundleGroup !== null ||
-    filters.awardOnly;
+    filters.awardOnly ||
+    Boolean(filters.ollieFavoriteOnly);
 
   const resetFilters = () => {
     onFilterChange({
@@ -31,6 +32,7 @@ export function BookFilters({
       selectedInterests: [],
       bundleGroup: null,
       awardOnly: false,
+      ollieFavoriteOnly: false,
     });
   };
 
@@ -67,6 +69,27 @@ export function BookFilters({
         </div>
 
         <div className="flex flex-wrap gap-2">
+          {/* Ollie's Favorites 快速篩選 */}
+          <button
+            type="button"
+            onClick={() =>
+              onFilterChange({
+                ...filters,
+                ollieFavoriteOnly: !filters.ollieFavoriteOnly,
+                series: "全部書籍",
+                bundleGroup: null,
+                awardOnly: false,
+              })
+            }
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+              filters.ollieFavoriteOnly
+                ? "bg-[#b45309] text-white shadow-xs"
+                : "bg-[#fffbeb] border border-[#fde68a] text-[#b45309] hover:border-[#b45309]"
+            }`}
+          >
+            <span>⭐ Ollie&apos;s Favourites (24本)</span>
+          </button>
+
           {/* 基本類別 */}
           {["全部書籍", "五味太郎精選"].map((name) => {
             const isActive =

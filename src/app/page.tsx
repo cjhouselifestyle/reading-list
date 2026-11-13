@@ -77,6 +77,11 @@ export default function ReadingListPage() {
   // 依據篩選條件計算顯示的書籍列表
   const filteredBooks = useMemo(() => {
     return PICTURE_BOOKS.filter((book) => {
+      // 0. 歐里最愛過濾
+      if (filters.ollieFavoriteOnly && !book.isOllieFavorite) {
+        return false;
+      }
+
       // 1. 系列分類
       if (filters.series !== "全部書籍" && book.series !== filters.series) {
         return false;
@@ -151,7 +156,15 @@ export default function ReadingListPage() {
       />
 
       {/* 歐里的愛書專區 */}
-      <OllieSection />
+      <OllieSection
+        isActive={Boolean(filters.ollieFavoriteOnly)}
+        onToggleFilter={() =>
+          setFilters((prev) => ({
+            ...prev,
+            ollieFavoriteOnly: !prev.ollieFavoriteOnly,
+          }))
+        }
+      />
 
       {/* 書架標題列 */}
       <div className="flex items-center justify-between mb-4 px-1">

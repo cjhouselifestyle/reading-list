@@ -46,12 +46,19 @@ export function BookCard({ book, isSelected, onClick, isBundlePair }: BookCardPr
           </div>
         )}
 
-        {/* 得獎標籤 */}
-        {book.award && (
-          <div className="absolute top-2 left-2 bg-[#655f57]/90 backdrop-blur-xs text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow-xs">
-            🏆 得獎
-          </div>
-        )}
+        {/* 標籤群（歐里最愛 / 得獎書籍） */}
+        <div className="absolute top-2 left-2 flex flex-col gap-1 items-start">
+          {book.isOllieFavorite && (
+            <div className="bg-[#b45309]/90 backdrop-blur-xs text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow-xs flex items-center gap-0.5">
+              <span>⭐ 歐里愛書</span>
+            </div>
+          )}
+          {book.award && (
+            <div className="bg-[#655f57]/90 backdrop-blur-xs text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow-xs">
+              🏆 得獎
+            </div>
+          )}
+        </div>
 
         {/* 已加入標記 */}
         {isSelected && (
