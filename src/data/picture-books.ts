@@ -3792,39 +3792,6 @@ export const PICTURE_BOOKS: Book[] = [
     "cover": "https://cdn.groupbuyforms.com/upload/images/unsort/56afd40f38d0410e84d292c1fffacce7.jpg"
   },
   {
-    "name": "愛思考的青蛙：夜晚從哪裡來？",
-    "cats": [
-      "哲思啟蒙",
-      "自然與季節"
-    ],
-    "interests": [
-      "喜歡問為什麼",
-      "喜歡自然"
-    ],
-    "series": "團購推薦",
-    "startAge": "3–6 歲",
-    "startReason": "日本哲學繪本大師岩村和朗作品，用青蛙視角探索宇宙與夜晚奧秘。",
-    "intro": "小青蛙坐在荷葉上發呆：「天黑的時候，白天的光去哪裡了呢？夜晚到底是從哪裡飄過來的？」和老鼠好朋友一起展開深刻而童趣的哲思對話。",
-    "highlight": "岩村和朗（14隻老鼠作者）深度之作，培養孩子主動觀察大自然、對世界產生深刻好奇的哲思能力。",
-    "recommendation": "愛問「為什麼」、對大自然現象有強烈好奇心的小小哲學家。",
-    "sentences": [
-      "夜晚從哪裡來？",
-      "太陽下山了！",
-      "月亮升起來了！",
-      "天亮之後呢？",
-      "好好想一想！"
-    ],
-    "tips": [
-      "陪孩子坐在窗邊看黃昏夕陽慢慢變成黑夜的過程。",
-      "不用急著用科學解答，先聽聽孩子的浪漫童稚推論。",
-      "讓孩子感受思考本身的美好與平靜。"
-    ],
-    "id": 203,
-    "pending": false,
-    "official": "https://www.hsinyishop.com/products?query=%E6%84%9B%E6%80%9D%E8%80%83%E7%9A%84%E9%9D%92%E8%9B%99%EF%BC%9A%E5%A4%9C%E6%99%9A%E5%BE%9E%E5%93%AA%E8%A3%A1%E4%BE%86%EF%BC%9F",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vh/f4/576/f4919f741e0e4b129d6060f79a2fc12f.png"
-  },
-  {
     "name": "倉鼠到哪去了？(硬頁書)",
     "cats": [
       "找找看",
