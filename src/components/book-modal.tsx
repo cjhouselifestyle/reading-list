@@ -47,6 +47,8 @@ export function BookModal({
   const displayCats = isVisualBundle ? "動物故事 · 找找看｜兩本合購組" : book.cats.join(" · ");
   const currentTip = book.tips[selectedAge - 1] || book.tips[0] || "暫無建議";
 
+  const hasSentences = Boolean(book.sentences && book.sentences.length > 0);
+
   // 使用瀏覽器原生文字定位語法 (#:~:text=)，平滑滾動至視野中央，完整展示封面且不被頂部選單遮擋
   const searchKeyword = isVisualBundle
     ? "誰吃掉了"
@@ -167,40 +169,43 @@ export function BookModal({
             )}
           </div>
 
-          {/* 重複語句與分齡共讀 */}
-          <div className="grid sm:grid-cols-2 gap-3.5 sm:gap-4">
-            {/* 重複語句 */}
-            <div className="bg-[#f2f2f0] rounded-2xl p-3.5 sm:p-4 flex flex-col">
-              <div className="flex items-center justify-between mb-2.5">
-                <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-white border border-[#e5e1db] text-[#37332f]">
-                  重複語句
-                </span>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/icon-repeat-v1.png"
-                  alt=""
-                  className="w-8 h-8 sm:w-10 sm:h-10 object-contain rounded-full bg-white p-1"
-                />
-              </div>
-              <div className="flex flex-col gap-1.5 flex-1 justify-center">
-                {book.sentences && book.sentences.length > 0 ? (
-                  book.sentences.map((sentence, idx) => (
+          {/* 重複語句與分齡共讀（若無特定重複語句則分齡共讀自動全寬，不顯示重複語句區塊） */}
+          <div className={`grid ${hasSentences ? "sm:grid-cols-2" : "grid-cols-1"} gap-3.5 sm:gap-4`}>
+            {/* 重複語句（僅在有重複句型時顯示） */}
+            {hasSentences && book.sentences && (
+              <div className="bg-[#f2f2f0] rounded-2xl p-3.5 sm:p-4 flex flex-col">
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-white border border-[#e5e1db] text-[#37332f]">
+                    重複語句
+                  </span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/icon-repeat-v1.png"
+                    alt=""
+                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain rounded-full bg-white p-1"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5 flex-1 justify-center">
+                  {book.sentences.map((sentence, idx) => (
                     <span key={idx} className="text-xs text-[#443f3a] font-medium leading-relaxed">
                       「{sentence}」
                     </span>
-                  ))
-                ) : (
-                  <span className="text-xs text-[#77716b]">無特定重複句型</span>
-                )}
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* 分齡共讀 */}
             <div className="bg-[#f2f2f0] rounded-2xl p-3.5 sm:p-4 flex flex-col">
               <div className="flex items-center justify-between mb-2.5">
-                <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-white border border-[#e5e1db] text-[#37332f]">
-                  分齡共讀
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-white border border-[#e5e1db] text-[#37332f]">
+                    分齡共讀
+                  </span>
+                  <span className="text-[11px] text-[#77716b] font-medium">
+                    {selectedAge} 歲引導重點
+                  </span>
+                </div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/icon-shared-reading-v1.png"
