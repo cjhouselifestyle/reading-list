@@ -983,7 +983,7 @@ export const PICTURE_BOOKS: Book[] = [
       "喜歡動物",
       "喜歡想像"
     ],
-    "series": "團購推薦",
+    "series": "五味太郎精選",
     "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/42/576/422c1d8390ec41a6a0488e8c961596e4.png",
     "intro": "這本書把小金魚馬戲團放進孩子熟悉又有趣的情境裡，跟著角色一起發現、觀察和想像。故事節奏適合親子慢慢翻讀，也很容易連到孩子自己的生活經驗。",
     "highlight": "畫面和情節留了很多可以一起看的小線索，孩子不只是在聽故事，也能邊看邊猜、邊說出自己的發現。",
@@ -2004,8 +2004,8 @@ export const PICTURE_BOOKS: Book[] = [
     ],
     "series": "團購推薦",
     "cover": "https://cdn.groupbuyforms.com/upload/images/v3/6d/576/6dbedb4c31844658a6b5eb592ce12420.jpg",
-    "intro": "這本書把愛吃青菜的鱷魚放進孩子熟悉又有趣的情境裡，跟著角色一起發現、觀察和想像。故事節奏適合親子慢慢翻讀，也很容易連到孩子自己的生活經驗。",
-    "highlight": "畫面和情節留了很多可以一起看的小線索，孩子不只是在聽故事，也能邊看邊猜、邊說出自己的發現。",
+    "intro": "愛吃青菜的鱷魚把綠色蔬菜變成每天都期待的美味，帶孩子一起認識吃青菜和照顧身體的好處。",
+    "highlight": "綠色小超人出動！故事用愛吃青菜的鱷魚，陪孩子把高麗菜、花椰菜和空心菜想成身體裡的好朋友。每吃下一口綠色蔬菜，就像召集小超人一起把細菌趕走，讓健康和勇氣變成孩子聽得懂、也想跟著做的生活遊戲。",
     "recommendation": "喜歡喜歡動物，也喜歡和大人一起發現細節的孩子。",
     "startAge": "2–4 歲",
     "startReason": "2–4 歲左右開始讀，孩子較能把故事裡的情境和自己的經驗連在一起。",
@@ -2017,7 +2017,8 @@ export const PICTURE_BOOKS: Book[] = [
     ],
     "official": "https://www.hsinyishop.com/products?query=%E6%84%9B%E5%90%83%E9%9D%92%E8%8F%9C%E7%9A%84%E9%B1%B7%E9%AD%9A",
     "pending": true,
-    "award": "中小學生優良課外讀物"
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   },
   {
     "id": 162,

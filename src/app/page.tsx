@@ -9,6 +9,18 @@ import { BookFilters } from "@/components/book-filters";
 import { MyListDrawer } from "@/components/my-list-drawer";
 import { FloatingGroupbuyBtn } from "@/components/floating-groupbuy-btn";
 
+const SERIES_ORDER = ["五味太郎精選", "信誼0–3歲推薦", "團購推薦"];
+const CATEGORY_ORDER = [
+  "動物故事",
+  "親情與陪伴",
+  "情緒與成長",
+  "生活日常",
+  "找找看",
+  "想像力",
+  "冒險與探索",
+  "自然與季節",
+];
+
 export default function ReadingListPage() {
   // 篩選條件狀態
   const [filters, setFilters] = useState<FilterState>({
@@ -114,7 +126,19 @@ export default function ReadingListPage() {
 
   // 處理書本展示：合購組第 3 本（藏在誰那兒呢？）不重複佔一格，而是與第 2 本合併
   const displayBooks = useMemo(() => {
-    return filteredBooks.filter((b) => b.id !== 3);
+    return filteredBooks
+      .filter((b) => b.id !== 3)
+      .sort((a, b) => {
+        const seriesDifference =
+          SERIES_ORDER.indexOf(a.series) - SERIES_ORDER.indexOf(b.series);
+        if (seriesDifference !== 0) return seriesDifference;
+
+        const categoryDifference =
+          CATEGORY_ORDER.indexOf(a.cats[0]) - CATEGORY_ORDER.indexOf(b.cats[0]);
+        if (categoryDifference !== 0) return categoryDifference;
+
+        return a.id - b.id;
+      });
   }, [filteredBooks]);
 
   const selectedBooks = useMemo(() => {
