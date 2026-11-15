@@ -159,7 +159,7 @@ export function BookModal({
             {book.startAge && (
               <div className="bg-[#faf7f2] border border-[#e8e0d6] rounded-2xl p-3.5">
                 <h4 className="text-xs font-bold text-[#655f57] mb-1">
-                  最推薦開始讀的年紀：{book.startAge}
+                  推薦開始閱讀的年紀：{book.startAge}
                 </h4>
                 <p className="text-xs text-[#77716b] leading-relaxed">
                   {book.startReason}
