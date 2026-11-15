@@ -6,7 +6,6 @@ import { Book, FilterState } from "@/types";
 import { BookCard } from "@/components/book-card";
 import { BookModal } from "@/components/book-modal";
 import { BookFilters } from "@/components/book-filters";
-import { OllieSection } from "@/components/ollie-section";
 import { MyListDrawer } from "@/components/my-list-drawer";
 import { FloatingGroupbuyBtn } from "@/components/floating-groupbuy-btn";
 
@@ -17,7 +16,6 @@ export default function ReadingListPage() {
     topic: "全部",
     selectedInterests: [],
     bundleGroup: null,
-    awardOnly: false,
   });
 
   // 使用者選取的書單 (IDs) 與每本書選擇的年齡 (1, 2, 3)
@@ -110,11 +108,6 @@ export default function ReadingListPage() {
         }
       }
 
-      // 5. 得獎書籍過濾
-      if (filters.awardOnly && book.award !== "中小學生優良課外讀物") {
-        return false;
-      }
-
       return true;
     });
   }, [filters]);
@@ -155,17 +148,6 @@ export default function ReadingListPage() {
         totalBooks={PICTURE_BOOKS.length}
       />
 
-      {/* 歐里的愛書專區 */}
-      <OllieSection
-        isActive={Boolean(filters.ollieFavoriteOnly)}
-        onToggleFilter={() =>
-          setFilters((prev) => ({
-            ...prev,
-            ollieFavoriteOnly: !prev.ollieFavoriteOnly,
-          }))
-        }
-      />
-
       {/* 書架標題列 */}
       <div className="flex items-center justify-between mb-4 px-1">
         <strong className="text-sm sm:text-base font-bold text-[#37332f]">
@@ -188,7 +170,7 @@ export default function ReadingListPage() {
                 topic: "全部",
                 selectedInterests: [],
                 bundleGroup: null,
-                awardOnly: false,
+                ollieFavoriteOnly: false,
               })
             }
             className="mt-3 px-4 py-1.5 rounded-full text-xs font-bold bg-[#655f57] text-white"

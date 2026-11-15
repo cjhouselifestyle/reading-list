@@ -120,7 +120,7 @@ export const BUNDLE_RULES: BundleSuggestionRule[] = [
   }
 ];
 
-export const OLLIE_FAVORITE_IDS = [1,2,3,6,8,10,11,17,124,125,21,24,25,126,127,128,129,130,131,191,22,132,143,153];
+export const OLLIE_FAVORITE_IDS = [1,2,3,6,8,10,11,17,124,125,21,24,25,126,127,128,129,130,131,191,22,132,143,153,210];
 
 export const PICTURE_BOOKS: Book[] = [
   {
@@ -3295,5 +3295,39 @@ export const PICTURE_BOOKS: Book[] = [
     "pending": false,
     "official": "https://www.hsinyishop.com/products?query=%E8%AB%8B%E5%95%8F%E4%B8%80%E4%B8%8B%EF%BC%8C%E8%B8%A9%E5%BE%97%E5%88%B0%E5%BA%95%E5%97%8E%EF%BC%9F",
     "cover": "https://cdn.groupbuyforms.com/upload/images/vcf/60/576/6070a473e318401a981724bc7b032169.png"
+  },
+  {
+    "id": 210,
+    "name": "小雞上學",
+    "cats": [
+      "情緒與成長",
+      "親情與陪伴"
+    ],
+    "interests": [
+      "喜歡動物",
+      "喜歡觀察情緒"
+    ],
+    "series": "團購推薦",
+    "startAge": "3–8 歲",
+    "startReason": "陪孩子理解第一次上學的緊張，從故事裡找到交朋友與適應新環境的勇氣。",
+    "intro": "膽小的小雞第一次上學，面對陌生的校園和同學，慢慢在老師與朋友的幫助下找到安心的位置。",
+    "highlight": "小雞上學不只是去新地方報到，也是一次學著和同伴相處的練習。故事把第一次上學的不安、交朋友的期待，以及被幫助後的安心感放進溫暖的情節裡。孩子可以跟著小雞看見，原來害怕並不代表做不到，有人陪著一起走，就能慢慢跨出第一步。讀完也能聊聊自己第一次上學或遇到新朋友時的心情。",
+    "recommendation": "即將上幼兒園、剛開始團體生活，或對交朋友感到緊張的孩子。",
+    "sentences": [],
+    "tips": [
+      "先看看小雞第一次上學遇到什麼，讓孩子說說自己最期待或最擔心的事。",
+      "聊聊在學校可以怎麼認識新朋友，也可以一起想一句自我介紹。",
+      "如果孩子即將入學，讀完後用角色扮演預演早上道別、進教室和找老師的情境。"
+    ],
+    "official": "https://www.hsinyishop.com/products/h000000037637",
+    "cover": "https://img.shoplineapp.com/media/image_clips/5e957da540bc840037f5ac09/original.jpg?1586855332=",
+    "award": "中小學生優良課外讀物",
+    "isOllieFavorite": true
   }
-];
+].map((book) => ({
+  ...book,
+  startAge: book.startAge.replace(/^2(?=–)/, "1 歲半"),
+  startReason: book.startReason
+    .replace(/2–(\d) 歲/g, "1 歲半–$1 歲")
+    .replace(/2 歲起/g, "1 歲半起")
+}));

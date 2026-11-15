@@ -30,6 +30,5 @@ export interface FilterState {
   topic: string;
   selectedInterests: string[];
   bundleGroup: string | null;
-  awardOnly: boolean;
   ollieFavoriteOnly?: boolean;
 }

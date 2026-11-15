@@ -1,6 +1,6 @@
 "use client";
 
-import { TOPICS, INTEREST_LABELS, BUNDLE_GROUPS, GROUPBUY_URL } from "@/data/picture-books";
+import { TOPICS, INTEREST_LABELS, BUNDLE_GROUPS, GROUPBUY_URL, PICTURE_BOOKS } from "@/data/picture-books";
 import { FilterState } from "@/types";
 import { ExternalLink, RotateCcw } from "lucide-react";
 
@@ -22,7 +22,6 @@ export function BookFilters({
     filters.topic !== "全部" ||
     filters.selectedInterests.length > 0 ||
     filters.bundleGroup !== null ||
-    filters.awardOnly ||
     Boolean(filters.ollieFavoriteOnly);
 
   const resetFilters = () => {
@@ -31,7 +30,6 @@ export function BookFilters({
       topic: "全部",
       selectedInterests: [],
       bundleGroup: null,
-      awardOnly: false,
       ollieFavoriteOnly: false,
     });
   };
@@ -78,7 +76,6 @@ export function BookFilters({
                 ollieFavoriteOnly: !filters.ollieFavoriteOnly,
                 series: "全部書籍",
                 bundleGroup: null,
-                awardOnly: false,
               })
             }
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
@@ -87,14 +84,13 @@ export function BookFilters({
                 : "bg-[#fffbeb] border border-[#fde68a] text-[#b45309] hover:border-[#b45309]"
             }`}
           >
-            <span>⭐ Ollie&apos;s Favourites (24本)</span>
+            <span>⭐ Ollie&apos;s Favourites ({PICTURE_BOOKS.filter((book) => book.isOllieFavorite).length}本)</span>
           </button>
 
           {/* 基本類別 */}
           {["全部書籍", "五味太郎精選"].map((name) => {
             const isActive =
               filters.series === name &&
-              !filters.awardOnly &&
               filters.bundleGroup === null;
             return (
               <button
@@ -104,7 +100,6 @@ export function BookFilters({
                   onFilterChange({
                     ...filters,
                     series: name,
-                    awardOnly: false,
                     bundleGroup: null,
                   })
                 }
@@ -130,7 +125,6 @@ export function BookFilters({
                   onFilterChange({
                     ...filters,
                     bundleGroup: isActive ? null : groupName,
-                    awardOnly: false,
                     series: "全部書籍",
                   })
                 }
@@ -145,25 +139,6 @@ export function BookFilters({
             );
           })}
 
-          {/* 得獎書籍過濾 */}
-          <button
-            type="button"
-            onClick={() =>
-              onFilterChange({
-                ...filters,
-                awardOnly: !filters.awardOnly,
-                bundleGroup: null,
-                series: "全部書籍",
-              })
-            }
-            className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
-              filters.awardOnly
-                ? "bg-[#655f57] text-white shadow-xs"
-                : "bg-white border border-[#e5e1db] text-[#37332f] hover:border-[#b8a99b]"
-            }`}
-          >
-            得獎：中小學生優良課外讀物
-          </button>
         </div>
       </div>
 
