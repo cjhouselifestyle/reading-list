@@ -120,7 +120,7 @@ export const BUNDLE_RULES: BundleSuggestionRule[] = [
   }
 ];
 
-export const OLLIE_FAVORITE_IDS = [1,2,3,6,8,10,11,17,124,125,21,24,25,126,127,128,129,130,131,191,22,132,143,153,210];
+export const OLLIE_FAVORITE_IDS = [1,2,3,6,8,10,11,17,124,21,24,25,126,127,130,131,22,132,143,153,210];
 
 export const PICTURE_BOOKS: Book[] = [
   {
@@ -1025,8 +1025,7 @@ export const PICTURE_BOOKS: Book[] = [
       "讓孩子找出多出來的那一片，問問看：「這一片可以去哪裡冒險呢？」發揮想像力。"
     ],
     "official": "https://www.hsinyishop.com/products?query=%E5%A4%9A%E4%BA%86%E5%93%AA%E4%B8%80%E7%89%87%E6%8B%BC%E5%9C%96%E6%9B%B8",
-    "pending": true,
-    "isOllieFavorite": true
+    "pending": true
   },
   {
     "id": 126,
@@ -1137,8 +1136,7 @@ export const PICTURE_BOOKS: Book[] = [
       "討論第10隻小鴨遇到真鴨子媽媽並融入鴨群的溫馨結局，給孩子安心的歸屬感。"
     ],
     "official": "https://www.hsinyishop.com/products?query=10%E9%9A%BB%E6%A9%A1%E7%9A%AE%E5%B0%8F%E9%B4%A8",
-    "pending": true,
-    "isOllieFavorite": true
+    "pending": true
   },
   {
     "id": 130,
@@ -2837,8 +2835,7 @@ export const PICTURE_BOOKS: Book[] = [
     "id": 191,
     "pending": false,
     "official": "https://www.hsinyishop.com/products?query=%E5%A5%BD%E5%AF%82%E5%AF%9E%E7%9A%84%E8%9E%A2%E7%81%AB%E8%9F%B2",
-    "cover": "https://cdn.groupbuyforms.com/upload/images/vf/80/288/80b375bb34e04be0bceace467f6890d8.png",
-    "isOllieFavorite": true
+    "cover": "https://cdn.groupbuyforms.com/upload/images/vf/80/288/80b375bb34e04be0bceace467f6890d8.png"
   },
   {
     "name": "《豆豆的家》聖誕限定版",
