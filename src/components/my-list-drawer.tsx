@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Book } from "@/types";
 import { BUNDLE_RULES, GROUPBUY_URL } from "@/data/picture-books";
+import { getReadingTip } from "@/lib/reading-tips";
 import { Printer, Copy, ArrowLeft, ExternalLink, X } from "lucide-react";
 
 interface MyListDrawerProps {
@@ -34,7 +35,7 @@ export function MyListDrawer({
 
     selectedBooks.forEach((book, idx) => {
       const age = ages[book.id] || 1;
-      const tip = book.tips[age - 1] || book.tips[0] || "";
+      const tip = getReadingTip(book, age);
       lines.push(`${idx + 1}. 《${book.name}》｜${age} 歲共讀`);
       if (book.sentences && book.sentences.length > 0) {
         lines.push(`   重複語句：${book.sentences.map((s) => `「${s}」`).join(" ")}`);
@@ -129,7 +130,7 @@ export function MyListDrawer({
             <div className="p-5 sm:p-6 overflow-y-auto space-y-4 flex-1">
               {selectedBooks.map((book, idx) => {
                 const age = ages[book.id] || 1;
-                const tip = book.tips[age - 1] || book.tips[0];
+                const tip = getReadingTip(book, age);
                 return (
                   <div
                     key={book.id}

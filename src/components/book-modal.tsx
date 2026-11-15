@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { Book } from "@/types";
 import { GROUPBUY_URL } from "@/data/picture-books";
+import { getReadingTip } from "@/lib/reading-tips";
 import { X, ExternalLink, ShoppingBag } from "lucide-react";
 
 interface BookModalProps {
@@ -45,7 +46,7 @@ export function BookModal({
   const isVisualBundle = book.id === 2 || book.id === 3;
   const displayTitle = isVisualBundle ? "誰吃掉了？＋藏在誰那兒呢？" : book.name;
   const displayCats = isVisualBundle ? "動物故事 · 找找看｜兩本合購組" : book.cats.join(" · ");
-  const currentTip = book.tips[selectedAge - 1] || book.tips[0] || "暫無建議";
+  const currentTip = getReadingTip(book, selectedAge);
 
   const hasSentences = Boolean(book.sentences && book.sentences.length > 0);
 
