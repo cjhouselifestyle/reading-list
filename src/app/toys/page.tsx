@@ -117,13 +117,14 @@ function ToyModal({ toy, age, onAgeChange, onClose, onCompare }: { toy: ToyItem;
           <span>{toy.group} · {toy.id}</span>
           <button type="button" onClick={onClose} className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[#d8d9ce] text-xl hover:bg-[#f3ead9]" aria-label="關閉陪玩示範"><X className="h-5 w-5" /></button>
         </div>
-        <div className="mt-4 flex items-start justify-between gap-5">
+        <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
           <div className="min-w-0 flex-1">
             <h2 id="toy-title" className="m-0 text-3xl font-black leading-tight text-[#243a32] sm:text-5xl">{toy.name}</h2>
             <p className="mt-2 text-sm text-[#53655a]">適玩年齡 {toy.ageLabel}</p>
-            <div className="mt-4 grid grid-cols-1 gap-2 rounded-xl bg-[#f5efdf] p-3 text-sm leading-7 sm:grid-cols-[auto_minmax(0,1fr)] sm:gap-3"><strong className="leading-6">很適合<br className="hidden sm:block" />這樣的孩子</strong><p className="m-0">{toy.recommend}。</p></div>
+            <div className="mt-4 hidden grid-cols-[auto_minmax(0,1fr)] gap-3 rounded-xl bg-[#f5efdf] p-3 text-sm leading-7 sm:grid"><strong className="leading-6">很適合<br />這樣的孩子</strong><p className="m-0">{toy.recommend}。</p></div>
           </div>
-          <img src={toy.image} alt={`${toy.name} 商品縮圖`} className="h-32 w-32 shrink-0 object-contain sm:h-48 sm:w-48" />
+          <img src={toy.image} alt={`${toy.name} 商品縮圖`} className="mx-auto h-40 w-full max-w-[220px] object-contain sm:mx-0 sm:h-48 sm:w-48 sm:max-w-none" />
+          <div className="grid grid-cols-1 gap-2 rounded-xl bg-[#f5efdf] p-4 text-sm leading-7 sm:hidden"><strong className="leading-6">很適合這樣的孩子</strong><p className="m-0">{toy.recommend}。</p></div>
         </div>
         {compareKey && <button type="button" onClick={onCompare} className="mt-3 inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-[#53655a] hover:text-[#244c3e]"><img src="/toys-guide/compare-icon.png" alt="" className="h-7 w-7 object-contain" />比較相似木玩：{COMPARE_GROUPS[compareKey].title} <ArrowUpRight className="h-4 w-4" /></button>}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[#e5e1db] pt-5">
