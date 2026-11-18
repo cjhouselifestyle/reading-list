@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ChevronDown, ChevronUp, Search } from "lucide-react";
 import { FloatingGroupbuyBtn } from "@/components/floating-groupbuy-btn";
 import { COMPARE_GROUPS } from "@/data/toy-comparisons";
@@ -15,6 +15,8 @@ const ACCENTS: Record<string, string> = {
   音樂與走動: "#a28cae",
 };
 
+const TOY_LIST_STATE_KEY = "cj_toys_list_state";
+
 function getCompareItems(ids: string[]) {
   return ids.map((id) => TOYS.find((toy) => toy.id === id)).filter((toy): toy is ToyItem => Boolean(toy));
 }
@@ -23,6 +25,39 @@ export default function ToysPage() {
   const [category, setCategory] = useState<(typeof TOY_GROUPS)[number]>("全部");
   const [query, setQuery] = useState("");
   const [showAllToys, setShowAllToys] = useState(false);
+
+  useEffect(() => {
+    const restoreListState = () => {
+      try {
+        const saved = sessionStorage.getItem(TOY_LIST_STATE_KEY);
+        if (!saved) return;
+        sessionStorage.removeItem(TOY_LIST_STATE_KEY);
+        const state = JSON.parse(saved) as { category?: string; query?: string; showAllToys?: boolean; scrollY?: number; toyId?: string };
+        const savedCategory = TOY_GROUPS.find((group) => group === state.category);
+        window.setTimeout(() => {
+          if (savedCategory) setCategory(savedCategory);
+          if (typeof state.query === "string") setQuery(state.query);
+          if (typeof state.showAllToys === "boolean") setShowAllToys(state.showAllToys);
+          const restoreScroll = () => {
+            const target = state.toyId ? document.querySelector(`a[href="/toys/${state.toyId}"]`) : null;
+            if (target instanceof HTMLElement) {
+              target.scrollIntoView({ block: "center", behavior: "auto" });
+            } else {
+              window.scrollTo({ top: typeof state.scrollY === "number" ? state.scrollY : 0, behavior: "auto" });
+            }
+          };
+          window.requestAnimationFrame(() => window.requestAnimationFrame(() => window.requestAnimationFrame(restoreScroll)));
+        }, 0);
+      } catch {}
+    };
+
+    const restoreTimer = window.setTimeout(restoreListState, 0);
+    window.addEventListener("pageshow", restoreListState);
+    return () => {
+      window.clearTimeout(restoreTimer);
+      window.removeEventListener("pageshow", restoreListState);
+    };
+  }, []);
 
   const shownToys = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -34,6 +69,7 @@ export default function ToysPage() {
   }, [category, query]);
 
   const toysToRender = showAllToys ? shownToys : shownToys.slice(0, 12);
+  const toggleVisibility = showAllToys ? "" : shownToys.length <= 9 ? "sm:hidden" : shownToys.length <= 12 ? "lg:hidden" : "";
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-32 pt-6 sm:px-6 sm:pt-10">
@@ -46,8 +82,8 @@ export default function ToysPage() {
         <div className="flex flex-wrap items-end justify-between gap-4"><h2 id="toy-choose" className="m-0 text-2xl font-black text-[#37332f] sm:text-3xl">寶寶最近愛玩什麼？</h2><label className="flex items-center gap-2 rounded-xl border border-[#e5e1db] bg-white px-3 py-2 text-sm text-[#77716b] shadow-xs"><Search className="h-4 w-4" /><input value={query} onChange={(event) => { setQuery(event.target.value); setShowAllToys(false); }} placeholder="搜尋玩具名稱或貨號" aria-label="搜尋玩具名稱或貨號" className="w-52 bg-transparent outline-none placeholder:text-[#aaa6a0]" /></label></div>
         <div className="mt-4 flex flex-wrap gap-2" aria-label="依玩法篩選">{TOY_GROUPS.map((group) => <button key={group} type="button" onClick={() => { setCategory(group); setShowAllToys(false); }} aria-pressed={category === group} className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-bold transition-colors ${category === group ? "border-[#655f57] bg-[#655f57] text-white" : "border-[#e5e1db] bg-white text-[#37332f] hover:bg-[#e8e4dc]"}`}>{group}</button>)}</div>
         <p className="my-4 text-xs font-medium text-[#77716b]">{shownToys.length} 款木玩</p>
-        {shownToys.length === 0 ? <div className="rounded-3xl border border-dashed border-[#e5e1db] bg-white p-10 text-center text-sm text-[#77716b]">沒有找到相符玩具，試試其他名稱或貨號。</div> : <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">{toysToRender.map((toy, index) => { const visibility = showAllToys ? "" : index === 8 ? "hidden sm:flex" : index >= 9 ? "hidden lg:flex" : ""; return <Link key={toy.id} href={`/toys/${toy.id}`} className={`group flex min-h-[270px] cursor-pointer flex-col rounded-xl border border-t-4 bg-white p-3 text-left shadow-xs transition hover:-translate-y-0.5 hover:bg-[#fbf8f0] hover:shadow-md sm:min-h-[300px] ${visibility}`} style={{ borderTopColor: ACCENTS[toy.group] }}><img src={toy.image} alt={`${toy.name} 商品圖`} className="h-28 w-full rounded-lg bg-[#f3ead9] object-contain p-2 sm:h-36" /><span className="mt-3 flex flex-1 flex-col"><span className="text-[11px] font-medium text-[#77716b] sm:text-xs">{toy.group}</span><span className="mt-1 text-base font-black leading-snug text-[#37332f] sm:text-lg">{toy.name}</span><span className="mt-1 line-clamp-2 text-xs leading-5 text-[#77716b] sm:text-sm sm:leading-6">{toy.recommend}</span><span className="mt-auto pt-3 text-xs font-bold text-[#244c3e] sm:text-sm">看陪玩示範 →</span></span></Link>; })}</div>}
-        {shownToys.length > 8 && <button type="button" onClick={() => setShowAllToys((current) => !current)} aria-expanded={showAllToys} className="mx-auto mt-5 flex cursor-pointer items-center gap-2 rounded-full border border-[#b2926c] bg-[#fffdf8] px-5 py-2.5 text-sm font-bold text-[#244c3e] transition-colors hover:bg-[#f5efdf]">{showAllToys ? "收合商品" : `查看全部 ${shownToys.length} 款木玩`}{showAllToys ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}</button>}
+        {shownToys.length === 0 ? <div className="rounded-3xl border border-dashed border-[#e5e1db] bg-white p-10 text-center text-sm text-[#77716b]">沒有找到相符玩具，試試其他名稱或貨號。</div> : <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">{toysToRender.map((toy, index) => { const visibility = showAllToys ? "" : index >= 9 ? "hidden lg:flex" : index >= 4 ? "hidden sm:flex" : ""; return <Link key={toy.id} href={`/toys/${toy.id}`} onClick={() => { try { sessionStorage.setItem(TOY_LIST_STATE_KEY, JSON.stringify({ category, query, showAllToys, scrollY: window.scrollY, toyId: toy.id })); } catch {} }} className={`group flex min-h-[270px] cursor-pointer flex-col rounded-xl border border-t-4 bg-white p-3 text-left shadow-xs transition hover:-translate-y-0.5 hover:bg-[#fbf8f0] hover:shadow-md sm:min-h-[300px] ${visibility}`} style={{ borderTopColor: ACCENTS[toy.group] }}><img src={toy.image} alt={`${toy.name} 商品圖`} className="h-28 w-full rounded-lg bg-[#f3ead9] object-contain p-2 sm:h-36" /><span className="mt-3 flex flex-1 flex-col"><span className="text-[11px] font-medium text-[#77716b] sm:text-xs">{toy.group}</span><span className="mt-1 text-base font-black leading-snug text-[#37332f] sm:text-lg">{toy.name}</span><span className="mt-1 line-clamp-2 text-xs leading-5 text-[#77716b] sm:text-sm sm:leading-6">{toy.recommend}</span><span className="mt-auto pt-3 text-xs font-bold text-[#244c3e] sm:text-sm">看陪玩示範 →</span></span></Link>; })}</div>}
+        {shownToys.length > 4 && <button type="button" onClick={() => setShowAllToys((current) => !current)} aria-expanded={showAllToys} className={`mx-auto mt-5 flex cursor-pointer items-center gap-2 rounded-full border border-[#b2926c] bg-[#fffdf8] px-5 py-2.5 text-sm font-bold text-[#244c3e] transition-colors hover:bg-[#f5efdf] ${toggleVisibility}`}>{showAllToys ? "收合商品" : `查看全部 ${shownToys.length} 款木玩`}{showAllToys ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}</button>}
       </section>
 
       <section className="mt-16" aria-labelledby="similar-toys">
