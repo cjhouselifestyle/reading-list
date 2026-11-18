@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Search, ShoppingBag, X } from "lucide-react";
 import { FloatingGroupbuyBtn } from "@/components/floating-groupbuy-btn";
-import { TOY_GROUPBUY_URL } from "@/data/groupbuy";
 import { TOY_GROUPS, TOYS, ToyItem, ToyDialogue } from "@/data/toys";
+import { getToyGroupbuyUrl } from "@/lib/groupbuy";
 
 type CompareGroup = {
   title: string;
@@ -126,6 +126,7 @@ function ToyModal({ toy, age, onAgeChange, onClose, onCompare }: { toy: ToyItem;
           <img src={toy.image} alt={`${toy.name} 商品縮圖`} className="mx-auto h-40 w-full max-w-[220px] object-contain sm:mx-0 sm:h-48 sm:w-48 sm:max-w-none" />
           <div className="grid grid-cols-1 gap-2 rounded-xl bg-[#f5efdf] p-4 text-sm leading-7 sm:hidden"><strong className="leading-6">很適合這樣的孩子</strong><p className="m-0">{toy.recommend}。</p></div>
         </div>
+        <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-[#d8d9ce] bg-[#edf2e9] p-4 sm:flex-row sm:items-center sm:justify-between"><div><p className="m-0 text-sm font-extrabold text-[#244c3e]">想直接看這款木玩？</p><p className="m-0 mt-1 text-xs text-[#53655a]">團購頁可用貨號 {toy.id} 找到商品。</p></div><a href={getToyGroupbuyUrl(toy.id)} target="_blank" rel="noopener noreferrer" className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#244c3e] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#316352]"><ShoppingBag className="h-4 w-4 text-amber-300" />去團購頁看這款 <ArrowUpRight className="h-4 w-4" /></a></div>
         {compareKey && <button type="button" onClick={onCompare} className="mt-3 inline-flex cursor-pointer items-center gap-2 text-sm font-bold text-[#53655a] hover:text-[#244c3e]"><img src="/toys-guide/compare-icon.png" alt="" className="h-7 w-7 object-contain" />比較相似木玩：{COMPARE_GROUPS[compareKey].title} <ArrowUpRight className="h-4 w-4" /></button>}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[#e5e1db] pt-5">
           <h3 className="m-0 flex items-center gap-2 text-lg font-extrabold text-[#244c3e]"><img src="/toys-guide/play-demo-icon.png" alt="" className="h-7 w-7" />一起玩，怎麼接話？</h3>
@@ -135,8 +136,7 @@ function ToyModal({ toy, age, onAgeChange, onClose, onCompare }: { toy: ToyItem;
           <section><h3 className="mb-2 text-base font-extrabold text-[#243a32]">寶寶這樣玩</h3><div className="grid gap-3 sm:grid-cols-2"><DialogueCard title="情境一｜跟著孩子接住動作" item={item} isPlay playText={toy.scene} /><DialogueCard title={`情境二｜${toy.scene2}`} item={altItem} isPlay playText={toy.scene2} /></div></section>
           <section><h3 className="mb-2 text-base font-extrabold text-[#243a32]">寶寶這樣說</h3><div className="grid gap-3 sm:grid-cols-2"><DialogueCard title="情境一｜把孩子的話接長一點" item={item} /><DialogueCard title={`情境二｜${toy.scene2}`} item={altItem} /></div></section>
         </div>
-        <a href={TOY_GROUPBUY_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex cursor-pointer items-center gap-2 rounded-xl bg-[#244c3e] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#316352]"><ShoppingBag className="h-4 w-4 text-amber-300" />去團購頁看這款 <ArrowUpRight className="h-4 w-4" /></a>
-        <p className="mt-3 text-xs text-[#77716b]">到團購頁可用貨號 {toy.id} 找到商品。{toy.source && <a href={toy.source} target="_blank" rel="noopener noreferrer" className="ml-2 cursor-pointer font-bold text-[#53655a] underline underline-offset-2">品牌商品介紹 ↗</a>}</p>
+        {toy.source && <p className="mt-3 text-xs text-[#77716b]">品牌商品介紹：<a href={toy.source} target="_blank" rel="noopener noreferrer" className="ml-1 cursor-pointer font-bold text-[#53655a] underline underline-offset-2">查看官方商品 ↗</a></p>}
       </section>
     </div>
   );

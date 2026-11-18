@@ -9,3 +9,9 @@ export function getGroupbuyUrl(pathname: string): string {
       return BOOK_GROUPBUY_URL;
   }
 }
+
+export function getToyGroupbuyUrl(productId: string): string {
+  const url = new URL(TOY_GROUPBUY_URL);
+  url.hash = `#:~:text=${encodeURIComponent(productId)}`;
+  return url.toString();
+}
