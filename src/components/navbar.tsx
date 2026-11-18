@@ -11,11 +11,6 @@ export function Navbar() {
   const groupbuyUrl = getGroupbuyUrl(pathname);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // 切換頁面時自動關閉漢堡選單
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
-
   // 選單開啟時鎖定背景捲動
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -30,7 +25,7 @@ export function Navbar() {
 
   const navItems: { name: string; href: string; badge?: string; active: boolean }[] = [
     { name: "經典繪本", href: "/", active: pathname === "/" },
-    { name: "木玩陪玩", href: "/toys", active: pathname === "/toys" },
+    { name: "木玩陪玩", href: "/toys", active: pathname.startsWith("/toys") },
   ];
 
   return (

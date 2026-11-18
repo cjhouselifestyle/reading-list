@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="zh-Hant">
       <body className="antialiased min-h-screen flex flex-col bg-[#f7f5f1] text-[#37332f]">
-        <Navbar />
+        <Suspense fallback={<div className="h-14 border-b border-[#e5e1db] bg-[#f7f5f1] sm:h-16" />}>
+          <Navbar />
+        </Suspense>
         <main className="flex-1">{children}</main>
         <footer className="border-t border-[#e5e1db] py-8 text-center text-xs text-[#77716b] no-print">
           <p>© 2026 CJ House Lifestyle. All rights reserved.</p>
