@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BOOK_GROUPBUY_URL, TOY_GROUPBUY_URL } from "@/data/groupbuy";
+import { getGroupbuyUrl } from "@/lib/groupbuy";
 import { ShoppingBag, ExternalLink, Menu, X } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
-  const groupbuyUrl = pathname === "/toys" ? TOY_GROUPBUY_URL : BOOK_GROUPBUY_URL;
+  const groupbuyUrl = getGroupbuyUrl(pathname);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // 切換頁面時自動關閉漢堡選單
@@ -53,7 +53,7 @@ export function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5 ${
+                  className={`cursor-pointer px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5 ${
                   item.active
                     ? "bg-[#655f57] text-white shadow-xs"
                     : "text-[#77716b] hover:bg-[#e8e4dc] hover:text-[#37332f]"
@@ -87,7 +87,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="w-10 h-10 rounded-xl bg-white border border-[#e5e1db] flex items-center justify-center text-[#37332f] hover:bg-[#e8e4dc] transition-colors focus:outline-none shadow-xs"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-[#e5e1db] bg-white text-[#37332f] transition-colors hover:bg-[#e8e4dc] focus:outline-none shadow-xs"
             aria-label={isMobileMenuOpen ? "關閉選單" : "打開選單"}
           >
             {isMobileMenuOpen ? (
@@ -109,7 +109,7 @@ export function Navbar() {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`flex items-center justify-between p-3.5 rounded-2xl text-base font-bold transition-all ${
+                className={`cursor-pointer flex items-center justify-between p-3.5 rounded-2xl text-base font-bold transition-all ${
                   item.active
                     ? "bg-[#655f57] text-white shadow-sm"
                     : "bg-white text-[#37332f] border border-[#e5e1db] hover:border-[#b8a99b]"

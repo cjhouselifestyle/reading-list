@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { BOOK_GROUPBUY_URL, TOY_GROUPBUY_URL } from "@/data/groupbuy";
+import { getGroupbuyUrl } from "@/lib/groupbuy";
 import { ShoppingBag, ExternalLink } from "lucide-react";
 
 interface FloatingGroupbuyBtnProps {
@@ -10,7 +10,7 @@ interface FloatingGroupbuyBtnProps {
 
 export function FloatingGroupbuyBtn({ hasSelectedBooks }: FloatingGroupbuyBtnProps) {
   const pathname = usePathname();
-  const groupbuyUrl = pathname === "/toys" ? TOY_GROUPBUY_URL : BOOK_GROUPBUY_URL;
+  const groupbuyUrl = getGroupbuyUrl(pathname);
 
   return (
     <aside
