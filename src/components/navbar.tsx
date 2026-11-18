@@ -27,9 +27,9 @@ export function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-  const navItems = [
+  const navItems: { name: string; href: string; badge?: string; active: boolean }[] = [
     { name: "經典繪本", href: "/", active: pathname === "/" },
-    { name: "玩具選物", href: "/toys", badge: "規劃中", active: pathname === "/toys" },
+    { name: "玩具選物", href: "/toys", active: pathname === "/toys" },
   ];
 
   return (
