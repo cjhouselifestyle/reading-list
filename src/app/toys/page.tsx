@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Search, ShoppingBag, X } from "lucide-react";
 import { FloatingGroupbuyBtn } from "@/components/floating-groupbuy-btn";
-import { GROUPBUY_URL } from "@/data/picture-books";
+import { TOY_GROUPBUY_URL } from "@/data/groupbuy";
 import { TOY_GROUPS, TOYS, ToyItem, ToyDialogue } from "@/data/toys";
 
 type CompareGroup = {
@@ -134,7 +134,7 @@ function ToyModal({ toy, age, onAgeChange, onClose, onCompare }: { toy: ToyItem;
           <section><h3 className="mb-2 text-base font-extrabold text-[#243a32]">寶寶這樣玩</h3><div className="grid gap-3 sm:grid-cols-2"><DialogueCard title="情境一｜跟著孩子接住動作" item={item} isPlay playText={toy.scene} /><DialogueCard title={`情境二｜${toy.scene2}`} item={altItem} isPlay playText={toy.scene2} /></div></section>
           <section><h3 className="mb-2 text-base font-extrabold text-[#243a32]">寶寶這樣說</h3><div className="grid gap-3 sm:grid-cols-2"><DialogueCard title="情境一｜把孩子的話接長一點" item={item} /><DialogueCard title={`情境二｜${toy.scene2}`} item={altItem} /></div></section>
         </div>
-        <a href={GROUPBUY_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#244c3e] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#316352]"><ShoppingBag className="h-4 w-4 text-amber-300" />去團購頁看這款 <ArrowUpRight className="h-4 w-4" /></a>
+        <a href={TOY_GROUPBUY_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#244c3e] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#316352]"><ShoppingBag className="h-4 w-4 text-amber-300" />去團購頁看這款 <ArrowUpRight className="h-4 w-4" /></a>
         <p className="mt-3 text-xs text-[#77716b]">到團購頁可用貨號 {toy.id} 找到商品。{toy.source && <a href={toy.source} target="_blank" rel="noopener noreferrer" className="ml-2 font-bold text-[#53655a] underline underline-offset-2">品牌商品介紹 ↗</a>}</p>
       </section>
     </div>

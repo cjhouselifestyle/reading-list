@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { Book } from "@/types";
-import { GROUPBUY_URL } from "@/data/picture-books";
+import { BOOK_GROUPBUY_URL } from "@/data/groupbuy";
 import { getReadingTip } from "@/lib/reading-tips";
 import { X, ExternalLink, ShoppingBag } from "lucide-react";
 
@@ -54,7 +54,7 @@ export function BookModal({
   const searchKeyword = isVisualBundle
     ? "誰吃掉了"
     : book.name.replace(/[（(].*?[）)]|[-－].*$/g, "").replace(/[？?！!]/g, "").trim() || book.name;
-  const groupBuyAnchorUrl = `${GROUPBUY_URL}#:~:text=${encodeURIComponent(searchKeyword)}`;
+  const groupBuyAnchorUrl = `${BOOK_GROUPBUY_URL}#:~:text=${encodeURIComponent(searchKeyword)}`;
 
   return (
     <div

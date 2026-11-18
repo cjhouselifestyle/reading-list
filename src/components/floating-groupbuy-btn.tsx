@@ -1,6 +1,7 @@
 "use client";
 
-import { GROUPBUY_URL } from "@/data/picture-books";
+import { usePathname } from "next/navigation";
+import { BOOK_GROUPBUY_URL, TOY_GROUPBUY_URL } from "@/data/groupbuy";
 import { ShoppingBag, ExternalLink } from "lucide-react";
 
 interface FloatingGroupbuyBtnProps {
@@ -8,6 +9,9 @@ interface FloatingGroupbuyBtnProps {
 }
 
 export function FloatingGroupbuyBtn({ hasSelectedBooks }: FloatingGroupbuyBtnProps) {
+  const pathname = usePathname();
+  const groupbuyUrl = pathname === "/toys" ? TOY_GROUPBUY_URL : BOOK_GROUPBUY_URL;
+
   return (
     <aside
       aria-label="快速前往團購頁面"
@@ -16,7 +20,7 @@ export function FloatingGroupbuyBtn({ hasSelectedBooks }: FloatingGroupbuyBtnPro
       }`}
     >
       <a
-        href={GROUPBUY_URL}
+        href={groupbuyUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex items-center gap-2 px-4 py-3 rounded-full bg-[#37332f] hover:bg-[#1f1d1a] text-white text-xs sm:text-sm font-bold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-200 border border-white/20 cursor-pointer animate-subtle-float"

@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GROUPBUY_URL } from "@/data/picture-books";
+import { BOOK_GROUPBUY_URL, TOY_GROUPBUY_URL } from "@/data/groupbuy";
 import { ShoppingBag, ExternalLink, Menu, X } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
+  const groupbuyUrl = pathname === "/toys" ? TOY_GROUPBUY_URL : BOOK_GROUPBUY_URL;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // 切換頁面時自動關閉漢堡選單
@@ -29,7 +30,7 @@ export function Navbar() {
 
   const navItems: { name: string; href: string; badge?: string; active: boolean }[] = [
     { name: "經典繪本", href: "/", active: pathname === "/" },
-    { name: "玩具選物", href: "/toys", active: pathname === "/toys" },
+    { name: "木玩陪玩", href: "/toys", active: pathname === "/toys" },
   ];
 
   return (
@@ -70,7 +71,7 @@ export function Navbar() {
 
           {/* 電腦版團購按鈕 */}
           <a
-            href={GROUPBUY_URL}
+            href={groupbuyUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full bg-[#37332f] hover:bg-[#1f1d1a] text-white transition-all shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap"
