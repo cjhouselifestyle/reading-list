@@ -121,7 +121,7 @@ function ToyModal({ toy, age, onAgeChange, onClose, onCompare }: { toy: ToyItem;
           <div className="min-w-0 flex-1">
             <h2 id="toy-title" className="m-0 text-3xl font-black leading-tight text-[#243a32] sm:text-5xl">{toy.name}</h2>
             <p className="mt-2 text-sm text-[#53655a]">適玩年齡 {toy.ageLabel}</p>
-            <div className="mt-4 grid grid-cols-[auto_minmax(0,1fr)] gap-3 rounded-xl bg-[#f5efdf] p-3 text-sm leading-7"><strong className="leading-6">很適合<br />這樣的孩子</strong><p className="m-0">{toy.recommend}。</p></div>
+            <div className="mt-4 grid grid-cols-1 gap-2 rounded-xl bg-[#f5efdf] p-3 text-sm leading-7 sm:grid-cols-[auto_minmax(0,1fr)] sm:gap-3"><strong className="leading-6">很適合<br className="hidden sm:block" />這樣的孩子</strong><p className="m-0">{toy.recommend}。</p></div>
           </div>
           <img src={toy.image} alt={`${toy.name} 商品縮圖`} className="h-32 w-32 shrink-0 object-contain sm:h-48 sm:w-48" />
         </div>
@@ -155,7 +155,26 @@ function CompareModal({ group, onClose, onOpenToy }: { group: CompareGroup; onCl
         <div className="flex items-center justify-between gap-4"><span className="flex items-center gap-2 text-sm font-bold text-[#244c3e]"><img src="/toys-guide/compare-icon.png" alt="" className="h-8 w-8" />相似木玩比較</span><button type="button" onClick={onClose} className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[#d8d9ce] text-xl hover:bg-[#f3ead9]" aria-label="關閉比較"><X className="h-5 w-5" /></button></div>
         <h2 id="compare-title" className="mt-4 text-3xl font-black text-[#243a32] sm:text-5xl">{group.title}</h2>
         <div className="mt-4 rounded-r-xl border-l-4 border-[#809f87] bg-[#edf2e9] p-4 text-sm leading-7"><strong>怎麼選？</strong><p className="m-0">{group.choice}</p></div>
-        <div className="mt-4 overflow-x-auto"><table className="w-full min-w-[720px] border-collapse text-left text-sm leading-6"><thead><tr><th className="w-28 border border-[#d8d9ce] bg-[#f5efdf] p-3 align-top">比較面向</th>{items.map((toy) => <th key={toy.id} className="min-w-[260px] border border-[#d8d9ce] bg-[#f5efdf] p-3 align-top"><img src={toy.image} alt={`${toy.name} 商品縮圖`} className="mb-2 h-28 w-full rounded-lg bg-[#f3ead9] object-contain p-2" /><span className="block font-black text-[#243a32]">{toy.name}</span></th>)}</tr></thead><tbody>{rows.map(([label, first, second]) => <tr key={label}><th scope="row" className="border border-[#d8d9ce] bg-[#fbf8f0] p-3 align-top text-[#53655a]">{label}</th><td className="border border-[#d8d9ce] p-3 align-top">{first}</td><td className="border border-[#d8d9ce] p-3 align-top">{second}</td></tr>)}<tr><th scope="row" className="border border-[#d8d9ce] bg-[#fbf8f0] p-3 align-top text-[#53655a]">陪玩示範</th>{items.map((toy) => <td key={toy.id} className="border border-[#d8d9ce] p-3 align-top"><button type="button" onClick={() => onOpenToy(toy)} className="cursor-pointer font-bold text-[#244c3e] underline decoration-[#b2926c] underline-offset-4">看這款陪玩示範 →</button></td>)}</tr></tbody></table></div>
+        <div className="mt-4 space-y-3 sm:hidden">
+          {items.map((toy, index) => (
+            <article key={toy.id} className="rounded-2xl border border-[#d8d9ce] bg-[#fffdf8] p-3">
+              <div className="flex items-center gap-3 border-b border-[#e5e1db] pb-3">
+                <img src={toy.image} alt={`${toy.name} 商品縮圖`} className="h-20 w-20 shrink-0 rounded-lg bg-[#f3ead9] object-contain p-1" />
+                <h3 className="m-0 text-lg font-black text-[#243a32]">{toy.name}</h3>
+              </div>
+              <dl className="divide-y divide-[#e5e1db] text-sm leading-6">
+                {rows.map(([label, first, second]) => (
+                  <div key={label} className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-2 py-2">
+                    <dt className="font-bold text-[#53655a]">{label}</dt>
+                    <dd className="m-0 min-w-0 break-words text-[#37332f]">{index === 0 ? first : second}</dd>
+                  </div>
+                ))}
+              </dl>
+              <button type="button" onClick={() => onOpenToy(toy)} className="mt-3 cursor-pointer font-bold text-[#244c3e] underline decoration-[#b2926c] underline-offset-4">看這款陪玩示範 →</button>
+            </article>
+          ))}
+        </div>
+        <div className="mt-4 hidden max-w-full overflow-x-auto pb-2 sm:block"><table className="w-full min-w-[720px] border-collapse text-left text-sm leading-6"><thead><tr><th className="w-28 border border-[#d8d9ce] bg-[#f5efdf] p-3 align-top">比較面向</th>{items.map((toy) => <th key={toy.id} className="min-w-[260px] border border-[#d8d9ce] bg-[#f5efdf] p-3 align-top"><img src={toy.image} alt={`${toy.name} 商品縮圖`} className="mb-2 h-28 w-full rounded-lg bg-[#f3ead9] object-contain p-2" /><span className="block font-black text-[#243a32]">{toy.name}</span></th>)}</tr></thead><tbody>{rows.map(([label, first, second]) => <tr key={label}><th scope="row" className="border border-[#d8d9ce] bg-[#fbf8f0] p-3 align-top text-[#53655a]">{label}</th><td className="border border-[#d8d9ce] p-3 align-top">{first}</td><td className="border border-[#d8d9ce] p-3 align-top">{second}</td></tr>)}<tr><th scope="row" className="border border-[#d8d9ce] bg-[#fbf8f0] p-3 align-top text-[#53655a]">陪玩示範</th>{items.map((toy) => <td key={toy.id} className="border border-[#d8d9ce] p-3 align-top"><button type="button" onClick={() => onOpenToy(toy)} className="cursor-pointer font-bold text-[#244c3e] underline decoration-[#b2926c] underline-offset-4">看這款陪玩示範 →</button></td>)}</tr></tbody></table></div>
       </section>
     </div>
   );
