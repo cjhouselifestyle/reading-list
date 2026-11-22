@@ -1,5 +1,6 @@
 import { TOY_STAGE_3_DIALOGUES } from "@/data/toy-stage-dialogues";
 import { TOY_SPEECH_OVERRIDES } from "@/data/toy-speech-overrides";
+import { TOY_CHILD_OVERRIDES } from "@/data/toy-child-overrides";
 
 export interface ToyDialogue {
   parent: string;
@@ -1431,6 +1432,7 @@ const TOY_SOURCE: ToyItem[] = [
 export const TOYS: ToyItem[] = TOY_SOURCE.map((toy) => {
   const stage3 = TOY_STAGE_3_DIALOGUES[toy.id];
   const natural = TOY_SPEECH_OVERRIDES[toy.id];
+  const child = TOY_CHILD_OVERRIDES[toy.id];
   const dialogue = [...toy.dialogue, stage3.dialogue];
   const dialogueAlt = [...toy.dialogueAlt, stage3.dialogueAlt];
 
@@ -1440,7 +1442,7 @@ export const TOYS: ToyItem[] = TOY_SOURCE.map((toy) => {
 
   return {
     ...toy,
-    dialogue: dialogue.map((item, index) => ({ ...item, ...natural.dialogue[index] })),
-    dialogueAlt: dialogueAlt.map((item, index) => ({ ...item, ...natural.dialogueAlt[index] })),
+    dialogue: dialogue.map((item, index) => ({ ...item, ...natural.dialogue[index], ...(child ? { child: child.dialogue[index] } : {}) })),
+    dialogueAlt: dialogueAlt.map((item, index) => ({ ...item, ...natural.dialogueAlt[index], ...(child ? { child: child.dialogueAlt[index] } : {}) })),
   };
 });
