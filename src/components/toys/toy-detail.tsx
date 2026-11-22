@@ -74,7 +74,7 @@ export function ToyDetailView({ toy }: { toy: ToyItem }) {
       </section>
 
       <section className="mt-6 rounded-[1.6rem] border border-[#d8d9ce] bg-[#f7f5ee] px-5 py-4 sm:px-8" aria-label="陪玩四階段原則">
-        <p className="m-0 text-sm leading-7 text-[#53655a]">每一次陪玩，都從孩子當下做得到的地方開始。1～1.5 歲時，孩子會先用眼神、動作或一兩個詞參與，我們陪著描述，不急著要他說完整。1.5～2 歲時，孩子開始把詞接在一起，家長可以把他的話多接一點。2～2.5 歲時，加入顏色、數量和位置，陪孩子說出看到的細節。2.5～3 歲時，再把動作、先後順序和結果串成短句，留一點時間等他自己接話。</p>
+        <p className="m-0 text-sm leading-7 text-[#53655a]">每一次陪玩，希望都從孩子當下做得到的地方開始。孩子還小的時候，我們可以先陪著描述動作、聲音和一兩個詞；等他慢慢長大，再把話接長一點，加入顏色、數量、位置和先後順序。當他準備好了，再陪他把動作和結果說出來，留一點時間等他自己接話；就算還沒有做到，也完全沒有關係，重點是，讓他感受到你就在他身邊！</p>
       </section>
 
       <section className="mt-6 rounded-[1.6rem] bg-[#fffdf8] px-5 py-6 shadow-sm sm:px-8 sm:py-8" aria-labelledby="play-demo-title">
