@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowLeft, ArrowUpRight, ShoppingBag } from "lucide-react";
 import { FloatingGroupbuyBtn } from "@/components/floating-groupbuy-btn";
-import { ToyItem, ToyDialogue } from "@/data/toys";
+import type { ToyItem, ToyDialogue } from "@/data/toys";
 import { getCompareKey, COMPARE_GROUPS } from "@/data/toy-comparisons";
+import { getToyDevelopmentPrompt, TOY_AGE_STAGES, type ToyAgeStageIndex } from "@/data/toy-development";
 import { getToyGroupbuyUrl } from "@/lib/groupbuy";
 
 function SpeechRow({ role, text }: { role: "baby" | "parent"; text: string }) {
@@ -31,9 +32,12 @@ function DialogueCard({ title, item, isPlay, playText }: { title: string; item: 
 }
 
 export function ToyDetailView({ toy }: { toy: ToyItem }) {
-  const [age, setAge] = useState(2);
-  const item = toy.dialogue[age - 1];
-  const altItem = toy.dialogueAlt[age - 1];
+  const [stageIndex, setStageIndex] = useState<ToyAgeStageIndex>(1);
+  const item = toy.dialogue[stageIndex];
+  const altItem = toy.dialogueAlt[stageIndex];
+  const primaryScene = toy.scene;
+  const secondaryScene = toy.scene2;
+  const developmentPrompt = getToyDevelopmentPrompt(toy, stageIndex);
   const compareKey = getCompareKey(toy.id);
 
   return (
@@ -53,6 +57,11 @@ export function ToyDetailView({ toy }: { toy: ToyItem }) {
               <strong className="leading-6 text-[#37332f]">很適合<br />這樣的孩子</strong>
               <p className="m-0">{toy.recommend}。</p>
             </div>
+            <div className="mt-3 rounded-2xl border border-[#d8d9ce] bg-white p-4 text-sm leading-7">
+              <strong className="text-[#244c3e]">低齡也可以這樣玩</strong>
+              <p className="m-0 mt-1">{toy.alternative}。</p>
+              <p className="m-0 mt-2 text-xs leading-5 text-[#77716b]">{toy.minMonths >= 36 ? "標示 3 歲以上可能和配件較小有關，不代表低齡不能陪玩；若孩子仍會把東西放入口中，先只用大型外觀件或由大人握著操作，避開小零件並全程陪同。" : "若孩子仍會把東西放入口中，先避開小零件；依孩子當下的動作能力調整玩法，並全程由大人陪同。"}</p>
+            </div>
             <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-[#d8d9ce] bg-[#edf2e9] p-4 sm:flex-row sm:items-center sm:justify-between">
               <div><p className="m-0 text-sm font-extrabold text-[#244c3e]">想直接看這款木玩？</p><p className="m-0 mt-1 text-xs text-[#53655a]">團購頁可用貨號 {toy.id} 找到商品。</p></div>
               <a href={getToyGroupbuyUrl(toy.id)} target="_blank" rel="noopener noreferrer" className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#244c3e] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#316352]"><ShoppingBag className="h-4 w-4 text-amber-300" />去團購頁看這款 <ArrowUpRight className="h-4 w-4" /></a>
@@ -68,11 +77,23 @@ export function ToyDetailView({ toy }: { toy: ToyItem }) {
       <section className="mt-6 rounded-[1.6rem] bg-[#fffdf8] px-5 py-6 shadow-sm sm:px-8 sm:py-8" aria-labelledby="play-demo-title">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e5e1db] pb-5">
           <h2 id="play-demo-title" className="m-0 flex items-center gap-2 text-xl font-extrabold text-[#244c3e] sm:text-2xl"><img src="/toys-guide/play-demo-icon.png" alt="" className="h-8 w-8" />一起玩，怎麼接話？</h2>
-          <div className="flex gap-2" aria-label="選擇陪玩對話年齡">{[1, 2, 3].map((value) => <button key={value} type="button" onClick={() => setAge(value)} aria-pressed={age === value} className={`cursor-pointer rounded-full border px-4 py-1.5 text-sm font-bold transition-colors ${age === value ? "border-[#244c3e] bg-[#244c3e] text-white" : "border-[#d8d9ce] bg-white text-[#243a32] hover:bg-[#f3ead9]"}`}>{value} 歲</button>)}</div>
+          <div className="flex flex-wrap gap-2" aria-label="選擇陪玩對話年齡">
+            {TOY_AGE_STAGES.map((stage, index) => <button key={stage.label} type="button" onClick={() => setStageIndex(index as ToyAgeStageIndex)} aria-pressed={stageIndex === index} className={`cursor-pointer rounded-full border px-3 py-1.5 text-xs font-bold transition-colors sm:px-4 sm:text-sm ${stageIndex === index ? "border-[#244c3e] bg-[#244c3e] text-white" : "border-[#d8d9ce] bg-white text-[#243a32] hover:bg-[#f3ead9]"}`}>{stage.shortLabel}</button>)}
+          </div>
         </div>
-        <div className="mt-5 space-y-6" aria-live="polite">
-          <section><h3 className="mb-2 text-base font-extrabold text-[#243a32]">寶寶這樣玩</h3><div className="grid gap-3 sm:grid-cols-2"><DialogueCard title="情境一｜跟著孩子接住動作" item={item} isPlay playText={toy.scene} /><DialogueCard title={`情境二｜${toy.scene2}`} item={altItem} isPlay playText={toy.scene2} /></div></section>
-          <section><h3 className="mb-2 text-base font-extrabold text-[#243a32]">寶寶這樣說</h3><div className="grid gap-3 sm:grid-cols-2"><DialogueCard title="情境一｜把孩子的話接長一點" item={item} /><DialogueCard title={`情境二｜${toy.scene2}`} item={altItem} /></div></section>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2" aria-live="polite">
+          <article className="rounded-2xl border border-[#cfd9cf] bg-[#edf2e9] p-4">
+            <h3 className="m-0 text-sm font-extrabold text-[#244c3e]">聽懂 · {TOY_AGE_STAGES[stageIndex].label}</h3>
+            <p className="m-0 mt-2 text-sm leading-7 text-[#37332f]">{developmentPrompt.listen}</p>
+          </article>
+          <article className="rounded-2xl border border-[#e2d4bf] bg-[#f5efdf] p-4">
+            <h3 className="m-0 text-sm font-extrabold text-[#8a6847]">開口 · {TOY_AGE_STAGES[stageIndex].label}</h3>
+            <p className="m-0 mt-2 text-sm leading-7 text-[#37332f]">{developmentPrompt.speak}</p>
+          </article>
+        </div>
+        <div className="mt-6 space-y-6" aria-live="polite">
+          <section><h3 className="mb-2 text-base font-extrabold text-[#243a32]">寶寶這樣玩</h3><div className="grid gap-3 sm:grid-cols-2"><DialogueCard title={`情境一｜${primaryScene}`} item={item} isPlay playText={primaryScene} /><DialogueCard title={`情境二｜${secondaryScene}`} item={altItem} isPlay playText={secondaryScene} /></div></section>
+          <section><h3 className="mb-2 text-base font-extrabold text-[#243a32]">寶寶這樣說</h3><div className="grid gap-3 sm:grid-cols-2"><DialogueCard title={`情境一｜${primaryScene}`} item={item} /><DialogueCard title={`情境二｜${secondaryScene}`} item={altItem} /></div></section>
         </div>
         {toy.source && <p className="mt-5 text-xs text-[#77716b]">品牌商品介紹：<a href={toy.source} target="_blank" rel="noopener noreferrer" className="ml-1 cursor-pointer font-bold text-[#53655a] underline underline-offset-2">查看官方商品 ↗</a></p>}
       </section>

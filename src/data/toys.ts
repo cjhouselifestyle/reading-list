@@ -1,3 +1,5 @@
+import { TOY_STAGE_3_DIALOGUES } from "@/data/toy-stage-dialogues";
+
 export interface ToyDialogue {
   parent: string;
   child: string;
@@ -22,7 +24,7 @@ export interface ToyItem {
 
 export const TOY_GROUPS = ["全部", "小廚房", "開店請客", "車輛出發", "小手探索", "音樂與走動"] as const;
 
-export const TOYS: ToyItem[] = [
+const TOY_SOURCE: ToyItem[] = [
   {
     "id": "50673",
     "name": "洛可可歐風廚房",
@@ -127,7 +129,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "糖果，給你。",
         "child": "糖果。",
-        "reply": "你買到糖果了。"
+        "reply": "你把糖果裝進袋子了。"
       },
       {
         "parent": "你想要哪一個？我幫你放袋子。",
@@ -155,7 +157,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "今天的糖果店要做活動，你想怎麼介紹這些點心？",
         "child": "這是草莓糖，這是巧克力餅乾。",
-        "reply": "你介紹得很清楚，客人知道每一樣是什麼口味。"
+        "reply": "喔，原來這是草莓糖，這是巧克力餅乾，客人都知道了。"
       }
     ],
     "minMonths": 36,
@@ -288,7 +290,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "小杯子放穩了，你想做熱咖啡還是冰咖啡？",
         "child": "咖啡給你。",
-        "reply": "太好了！這杯咖啡又香又濃，好好喝喔！"
+        "reply": "你把咖啡端給我了，我來喝一口。"
       },
       {
         "parent": "咖啡做好了，你要先聞香味，還是先端給客人？",
@@ -363,7 +365,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "一大球冰淇淋。",
         "child": "大球。",
-        "reply": "我要一大球。"
+        "reply": "你舀了一大球冰淇淋給我。"
       },
       {
         "parent": "我舀了一大球冰淇淋，裝在碗裡。",
@@ -386,7 +388,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "今天餐車有兩種口味，你要怎麼問客人想吃哪一種？",
         "child": "你要草莓還是香草？",
-        "reply": "你會先問客人，再照他的選擇準備冰淇淋。"
+        "reply": "好，我要草莓口味，謝謝你先問我。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-ice-cream-cart",
@@ -403,7 +405,7 @@ export const TOYS: ToyItem[] = [
     "image": "/toys/50665.jpg",
     "dialogue": [
       {
-        "parent": "攪湯。",
+        "parent": "你在攪湯。",
         "child": "湯。",
         "reply": "煮湯。"
       },
@@ -433,7 +435,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "今天要煮一鍋什麼湯？你可以說說看裡面放了哪些料。",
         "child": "玉米湯，有紅蘿蔔。",
-        "reply": "你說的是玉米湯，裡面還有紅蘿蔔，聽起來很香。"
+        "reply": "玉米湯裡有紅蘿蔔，聞起來好香。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-cookitots",
@@ -499,7 +501,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "嗶，結好了。",
         "child": "嗶。",
-        "reply": "嗶一聲。"
+        "reply": "嗶，結帳好了。"
       },
       {
         "parent": "大盒子，結帳了。",
@@ -527,7 +529,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "客人付錢了，你要找回多少？可以用小木片一起數。",
         "child": "找兩個給他。",
-        "reply": "你數出兩個找零，收銀員把錢交給客人。"
+        "reply": "兩個找零，謝謝你，收好了。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-cash-register",
@@ -546,7 +548,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "車上去了。",
         "child": "車。",
-        "reply": "車停了。"
+        "reply": "車開上去了。"
       },
       {
         "parent": "大車停在上面。",
@@ -574,7 +576,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "停車場客滿了，你可以幫每台車找不同的樓層嗎？",
         "child": "紅車停二樓，藍車停一樓。",
-        "reply": "你替兩台車安排了不同樓層，停車場有秩序了。"
+        "reply": "紅車停二樓、藍車停一樓，兩台車都有自己的位置。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-green-garage",
@@ -593,7 +595,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "火車開了。",
         "child": "走。",
-        "reply": "火車走了。"
+        "reply": "火車開了。"
       },
       {
         "parent": "長火車，開得很慢。",
@@ -640,7 +642,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "消防車出發。",
         "child": "走。",
-        "reply": "車走了。"
+        "reply": "消防車開了。"
       },
       {
         "parent": "大消防車開出去了。",
@@ -668,7 +670,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "這次任務需要帶什麼？水、梯子，還是救援工具？",
         "child": "帶水和梯子。",
-        "reply": "你想到帶水和梯子，消防隊準備得很完整。"
+        "reply": "帶水和梯子，消防車準備好了，可以出發。"
       }
     ],
     "minMonths": 36,
@@ -686,7 +688,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "警車出門了。",
         "child": "走。",
-        "reply": "車走了。"
+        "reply": "警車開了。"
       },
       {
         "parent": "藍色的警車開走了。",
@@ -714,7 +716,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "警察要怎麼確認小狗的家？可以看看門牌或問鄰居。",
         "child": "看門牌，送牠回去。",
-        "reply": "你想到看門牌，這樣就能把小狗送回正確的家。"
+        "reply": "先看門牌，再送小狗回家，這樣就不會走錯了。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-police-station",
@@ -733,7 +735,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "開門。開了。",
         "child": "開。",
-        "reply": "開門。"
+        "reply": "門打不開。"
       },
       {
         "parent": "小門卡住了。",
@@ -761,7 +763,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "小木屋有好幾個入口，你可以告訴我先開哪一扇、再找誰嗎？",
         "child": "先開紅門，找小狗。",
-        "reply": "你說出順序了，我們先開紅門，再找小狗。"
+        "reply": "好，先開紅門，再找小狗。"
       }
     ],
     "minMonths": 18,
@@ -807,7 +809,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "如果森林裡的動物一起出發，你會怎麼排牠們的順序？",
         "child": "小鳥、兔子、狐狸。",
-        "reply": "你排出小鳥、兔子和狐狸，牠們要一起出發了。"
+        "reply": "小鳥、兔子、狐狸排好了，牠們一起出發！"
       }
     ],
     "minMonths": 18,
@@ -853,7 +855,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "你想設計什麼規律？可以一顆大、一顆小地排。",
         "child": "大、小、大、小。",
-        "reply": "你排出大、小、大、小的規律，很容易看出來。"
+        "reply": "大、小、大、小，這個順序一直重複。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-colourful-life",
@@ -900,7 +902,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "兩條路不一樣，你覺得哪一條會先到終點？為什麼？",
         "child": "這條比較陡，會先到。",
-        "reply": "你注意到這條比較陡，先猜它會更快到終點。"
+        "reply": "這條比較陡，可能會先到終點，我們試試看。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-marble-blocks",
@@ -919,7 +921,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "推。倒了。",
         "child": "倒了。",
-        "reply": "都倒了。"
+        "reply": "骨牌都倒了。"
       },
       {
         "parent": "好長一排，都倒了。",
@@ -947,7 +949,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "如果中間留一個空格，骨牌還會連著倒嗎？我們試試看。",
         "child": "會停在這裡。",
-        "reply": "你發現中間有空格，後面的骨牌可能就不會跟著倒。"
+        "reply": "中間空一格，後面的骨牌可能不會倒，我們來試試。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-ocean-dominoes",
@@ -994,7 +996,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "到了草原，你要先讓誰下車？他們要去哪裡探險？",
         "child": "兔子先下車，去找花。",
-        "reply": "你先讓兔子下車，再帶牠去找花，很有順序。"
+        "reply": "好，先讓兔子下車，再帶牠去找花。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-prairie-adventurer-truck",
@@ -1023,7 +1025,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "我先減速轉彎，再開到寬的路上。",
         "child": "我要走寬的路。",
-        "reply": "你轉過彎了，前面那條寬的路可以開過去。"
+        "reply": "你轉過彎了，前面是寬路，可以繼續開。"
       }
     ],
     "scene2": "遇到紙膠帶做的彎道，先停一下再轉方向盤",
@@ -1041,7 +1043,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "你是小小駕駛，遇到窄路和寬路會怎麼選？",
         "child": "窄路慢慢開，寬路快一點。",
-        "reply": "你知道窄路要慢慢開，寬路可以比較順地前進。"
+        "reply": "窄路慢慢開，寬路可以開快一點。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-multi-function-steering-wheel",
@@ -1101,7 +1103,7 @@ export const TOYS: ToyItem[] = [
     "group": "小手探索",
     "recommend": "對數字和數量有興趣，正在練習把看到的數字和手上的圓圈一個一個對起來",
     "scene": "先把圓圈一個一個疊上去，感受從低到高",
-    "alternative": "1歲先用大積木練習一個一個堆疊，2歲再邊數邊放",
+    "alternative": "1 歲先用大積木練習一個一個堆疊，2 歲再邊數邊放",
     "image": "/toys/54556.jpg",
     "dialogue": [
       {
@@ -1110,14 +1112,14 @@ export const TOYS: ToyItem[] = [
         "reply": "你放一個。"
       },
       {
-        "parent": "一個、再一個，變高了。",
-        "child": "高高。",
-        "reply": "對，圓圈一個一個疊起來，變高了。"
+        "parent": "放一個、再放一個，我們數數看。",
+        "child": "一個、兩個。",
+        "reply": "你放了兩個圓圈，邊放邊數。"
       },
       {
-        "parent": "你把圓圈拿下來了，我們再放回去。",
-        "child": "再放。",
-        "reply": "好，我們慢慢放，一個一個來。"
+        "parent": "先看數字，再拿相同數量的圓圈來配。",
+        "child": "數字四，放四個。",
+        "reply": "你找到數字四，拿四個圓圈來配。"
       }
     ],
     "scene2": "把圓圈一個一個放回數字板，邊看邊數",
@@ -1275,7 +1277,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "我們來排一段節奏：輕、輕、重，下一輪換你接。",
         "child": "輕輕重，換我。",
-        "reply": "你記住了輕、輕、重，還知道下一輪輪到你。"
+        "reply": "好，輕、輕、重，下一輪換你，我跟著你的節奏。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-beach-music-table",
@@ -1294,7 +1296,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "上車了。走。",
         "child": "走。",
-        "reply": "車走了。"
+        "reply": "車開了。"
       },
       {
         "parent": "小動物上車了。",
@@ -1341,7 +1343,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "送到了，給你。",
         "child": "給。",
-        "reply": "給你。"
+        "reply": "你把湯給我了。"
       },
       {
         "parent": "熱湯送到了。",
@@ -1369,7 +1371,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "餐廳有兩桌客人，你要怎麼把湯和麵包送對地方？",
         "child": "湯給這桌，麵包給那桌。",
-        "reply": "你分清楚兩桌的餐點，送餐任務完成了。"
+        "reply": "湯送這桌、麵包送那桌，送餐完成了。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-kitchen-walker",
@@ -1388,7 +1390,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "停下來，看。",
         "child": "看。",
-        "reply": "我看到了。"
+        "reply": "你看到了。"
       },
       {
         "parent": "前面有棵大樹。",
@@ -1416,7 +1418,7 @@ export const TOYS: ToyItem[] = [
       {
         "parent": "你是森林探險家，看到樹、石頭和小動物時，會怎麼記錄路線？",
         "child": "先經過石頭，再到大樹找小鳥。",
-        "reply": "你說出先後順序了，探險路線很清楚。"
+        "reply": "先經過石頭，再到大樹找小鳥，路線記好了。"
       }
     ],
     "source": "https://www.tomali.com.tw/products/classicworld-forest-walker",
@@ -1424,3 +1426,9 @@ export const TOYS: ToyItem[] = [
     "ageLabel": "12 個月以上"
   }
 ];
+
+export const TOYS: ToyItem[] = TOY_SOURCE.map((toy) => ({
+  ...toy,
+  dialogue: [...toy.dialogue, TOY_STAGE_3_DIALOGUES[toy.id].dialogue],
+  dialogueAlt: [...toy.dialogueAlt, TOY_STAGE_3_DIALOGUES[toy.id].dialogueAlt],
+}));
