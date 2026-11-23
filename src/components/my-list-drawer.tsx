@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Book } from "@/types";
-import { BUNDLE_RULES, GROUPBUY_URL } from "@/data/picture-books";
+import { BUNDLE_RULES } from "@/data/picture-books";
+import { BOOK_GROUPBUY_URL } from "@/data/groupbuy";
 import { getReadingTip } from "@/lib/reading-tips";
 import { Printer, Copy, ArrowLeft, ExternalLink, X } from "lucide-react";
 
@@ -46,7 +47,7 @@ export function MyListDrawer({
       lines.push("");
     });
 
-    lines.push("團購頁面：" + GROUPBUY_URL);
+    lines.push("團購頁面：" + BOOK_GROUPBUY_URL);
     return lines.join("\n");
   };
 
@@ -213,7 +214,7 @@ export function MyListDrawer({
                             {isAllAdded ? "✓ 已加入此套組" : "好！選套組"}
                           </button>
                           <a
-                            href={GROUPBUY_URL}
+                            href={BOOK_GROUPBUY_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-xs font-bold text-[#655f57] hover:underline"

@@ -1,7 +1,5 @@
 import { Book, BundleSuggestionRule } from "@/types";
 
-export const GROUPBUY_URL = "https://p3.groupbuyforms.tw/o7gd2";
-
 export const TOPICS = [
   "全部",
   "親情與陪伴",
